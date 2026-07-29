@@ -1,0 +1,104 @@
+.weather-badge {
+  position: relative;
+}
+
+.weather-badge__main {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 0.35rem 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.weather-badge__main:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-gold);
+}
+
+.weather-badge__main svg {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.weather-badge__temp {
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.weather-badge__city {
+  opacity: 0.6;
+}
+
+.weather-badge__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem;
+  min-width: 180px;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: badgeFadeIn 0.15s ease;
+}
+
+@keyframes badgeFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.weather-badge__label {
+  display: block;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.weather-badge__options {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.weather-badge__option {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.weather-badge__option:hover {
+  background: rgba(255, 193, 7, 0.1);
+  border-color: rgba(255, 193, 7, 0.3);
+  color: var(--color-gold);
+}
+
+.weather-badge__option--active {
+  background: rgba(255, 193, 7, 0.15);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+@media (max-width: 768px) {
+  .weather-badge {
+    display: none;
+  }
+}

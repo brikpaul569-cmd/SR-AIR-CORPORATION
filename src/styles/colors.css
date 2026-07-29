@@ -1,0 +1,10 @@
+:root {
+  --color-black: #0d0d0d;
+  --color-dark-gray: #1a1a1a;
+  --color-medium-gray: #4d4d4d;
+  --color-gold: #ffc107;
+  --color-gold-light: #ffd54f;
+  --color-white: #ffffff;
+  --color-overlay: rgba(13, 13, 13, 0.80);
+  --transition-smooth: all 0.3s ease;
+}

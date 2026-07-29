@@ -1,0 +1,199 @@
+.truck-showcase {
+  --scroll-progress: 0;
+  position: relative;
+  background: transparent;
+  padding: 6rem 1.5rem;
+  color: #fff;
+  overflow: hidden;
+}
+
+.truck-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.3), transparent);
+  z-index: 2;
+}
+
+.truck-showcase__scroll-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 13, 13, 0) 0%,
+    rgba(26, 26, 26, calc(0.15 * var(--scroll-progress))) 40%,
+    rgba(13, 13, 13, calc(0.35 * var(--scroll-progress))) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.1s ease;
+}
+
+.truck-showcase__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.truck-showcase__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.truck-showcase__eyebrow {
+  color: var(--color-gold);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.truck-showcase__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+.truck-showcase__subtitle {
+  color: #999;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.truck-showcase__image-wrapper {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.truck-showcase__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 30px rgba(255, 193, 7, 0.08));
+}
+
+.truck-showcase__badge--emergency {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--color-gold);
+  color: #0d0d0d;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.truck-showcase__info-panel {
+  background: rgba(26, 26, 26, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.truck-showcase__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.truck-showcase__logo {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-gold);
+  color: var(--color-gold);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.truck-showcase__brand h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.truck-showcase__brand h3 span {
+  color: var(--color-gold);
+}
+
+.truck-showcase__brand p {
+  margin: 0.2rem 0 0;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.truck-showcase__president {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.truck-showcase__president span {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.truck-showcase__contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.truck-showcase__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.truck-showcase__contact-item svg {
+  color: var(--color-gold);
+}
+
+.truck-showcase__qr {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ffffff1a;
+}
+
+.truck-showcase__qr svg {
+  color: var(--color-gold);
+}
+
+.truck-showcase__qr span {
+  font-size: 0.85rem;
+  color: #999;
+  line-height: 1.4;
+}
+
+.truck-showcase__trust-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ffffff1a;
+  color: #ccc;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .truck-showcase__contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
