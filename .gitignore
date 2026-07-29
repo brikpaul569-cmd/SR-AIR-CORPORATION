@@ -11,6 +11,12 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.playwright-mcp/
+*.zip
+*.pdf
+*.ps
+*.psd
 
 # Editor directories and files
 .vscode/*

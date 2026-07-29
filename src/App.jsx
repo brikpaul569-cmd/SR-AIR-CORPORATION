@@ -44,7 +44,6 @@ function App() {
     >
       <WeatherEffects condition={weather.condition} />
       <Navbar
-        onContactOpen={openContact}
         weather={weather}
         onWeatherOverride={setWeatherOverride}
       />
@@ -55,7 +54,7 @@ function App() {
         <AboutUs />
         <Stats />
       </main>
-      <Footer />
+      <Footer onContactOpen={openContact} />
       <ContactForm isOpen={contactOpen} onClose={closeContact} />
     </div>
   )

@@ -3,7 +3,7 @@ import { Phone, Mail, Globe, MapPin, ArrowUp } from 'lucide-react';
 import QRCode from './QRCode';
 import './Footer.css';
 
-const Footer = () => {
+const Footer = ({ onContactOpen }) => {
   const { t } = useTranslation();
   const year = new Date().getFullYear();
 
@@ -57,6 +57,14 @@ const Footer = () => {
           <span>{t('footer.trustEmergency')}</span>
           <span>{t('footer.trustValues')}</span>
           <span>{t('footer.trustServing')}</span>
+        </div>
+
+        <div className="footer__cta">
+          <button className="footer__cta-btn" onClick={onContactOpen} aria-label={t('footer.cta')} title={t('footer.cta')}>
+            <span className="footer__cta-tire-text">
+              <Phone size={16} />
+            </span>
+          </button>
         </div>
 
         <div className="footer__bottom">
