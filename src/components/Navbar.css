@@ -185,6 +185,11 @@
     display: flex;
   }
 
+  .navbar__lang {
+    position: static;
+    margin-left: auto;
+  }
+
   .navbar__cta {
     display: none;
   }
