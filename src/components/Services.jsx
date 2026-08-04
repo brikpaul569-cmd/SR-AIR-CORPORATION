@@ -6,9 +6,10 @@ function Services() {
   const { t } = useTranslation()
 
   const services = [
+    { Icon: ServiceIcons.AirConditioning, title: t('services.card.airConditioning'), description: t('services.card.airConditioningDesc') },
+    { Icon: ServiceIcons.Heating, title: t('services.card.heating'), description: t('services.card.heatingDesc') },
     { Icon: ServiceIcons.CommercialHVAC, title: t('services.card.commercialHvac'), description: t('services.card.commercialHvacDesc') },
     { Icon: ServiceIcons.ResidentialHVAC, title: t('services.card.residentialHvac'), description: t('services.card.residentialHvacDesc') },
-    { Icon: ServiceIcons.RooftopUnits, title: t('services.card.rooftopUnits'), description: t('services.card.rooftopUnitsDesc') },
     { Icon: ServiceIcons.Refrigeration, title: t('services.card.refrigeration'), description: t('services.card.refrigerationDesc') },
     { Icon: ServiceIcons.VRFSystems, title: t('services.card.vrfSystems'), description: t('services.card.vrfSystemsDesc') },
     { Icon: ServiceIcons.Chillers, title: t('services.card.chillers'), description: t('services.card.chillersDesc') },

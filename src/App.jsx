@@ -48,7 +48,7 @@ function App() {
         onWeatherOverride={setWeatherOverride}
       />
       <main>
-        <Hero onContactOpen={openContact} />
+        <Hero />
         <Services />
         <TruckShowcase />
         <AboutUs />

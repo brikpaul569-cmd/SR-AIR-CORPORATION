@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Phone, ShieldCheck, Wrench, Clock } from 'lucide-react'
 import './Hero.css'
 
-function Hero({ onContactOpen }) {
+function Hero() {
   const { t } = useTranslation()
   const sectionRef = useRef(null)
   const imageRef = useRef(null)
@@ -58,10 +58,7 @@ function Hero({ onContactOpen }) {
           <p className="hero__description">{t('hero.description')}</p>
 
           <div className="hero__cta-group">
-            <button className="hero__cta hero__cta--primary" onClick={onContactOpen}>
-              {t('hero.ctaPrimary')}
-            </button>
-            <a href="tel:+17206804049" className="hero__cta hero__cta--outline">
+            <a href="tel:+17206804049" className="hero__cta hero__cta--primary">
               <Phone size={18} />
               {t('hero.ctaCall')}
             </a>
@@ -73,7 +70,7 @@ function Hero({ onContactOpen }) {
           ref={imageRef}
         >
           <img
-            src="/references/2SAT.png"
+            src="/references/black.png"
             alt={t('hero.imgAlt')}
             className="hero__image"
           />

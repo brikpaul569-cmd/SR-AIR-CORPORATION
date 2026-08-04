@@ -143,6 +143,151 @@
   padding: 2rem 0 1.5rem;
 }
 
+.footer__cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* =============================================
+   HVAC AC Condenser Coil — WhatsApp Button
+   ============================================= */
+.footer__ac-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  /* Dark condenser body */
+  background: radial-gradient(circle at 35% 30%, #2a2a2a, #0d0d0d 60%);
+
+  /* Copper coil rings (condenser wraps) */
+  box-shadow:
+    0 0 0 2px #c87533,
+    0 0 0 5px #b8651a,
+    0 0 0 7px #8b4513,
+    0 0 0 9px #6b3410,
+    inset 0 0 0 3px rgba(200, 117, 51, 0.25),
+    inset 0 0 12px rgba(200, 117, 51, 0.1),
+    0 6px 25px rgba(0, 0, 0, 0.6);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Copper coil fin texture (radial wraps) */
+.footer__ac-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 15deg,
+    rgba(200, 117, 51, 0.04) 0deg 3deg,
+    transparent 3deg 8deg
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Coil wrap rings (visible ring lines) */
+.footer__ac-btn::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 117, 51, 0.12);
+  box-shadow:
+    inset 0 0 0 8px transparent,
+    0 0 0 1px rgba(200, 117, 51, 0.10),
+    0 0 0 12px transparent,
+    0 0 0 2px rgba(200, 117, 51, 0.07),
+    0 0 0 22px transparent,
+    0 0 0 3px rgba(200, 117, 51, 0.05);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Fan hub in the center */
+.footer__ac-fan {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background:
+    /* Subtle fan blades (4-blade pattern) */
+    conic-gradient(
+      from 0deg,
+      rgba(255, 255, 255, 0.06) 0deg, transparent 20deg,
+      rgba(255, 255, 255, 0.06) 90deg, transparent 110deg,
+      rgba(255, 255, 255, 0.06) 180deg, transparent 200deg,
+      rgba(255, 255, 255, 0.06) 270deg, transparent 290deg
+    ),
+    radial-gradient(circle at 40% 35%,
+      rgba(40, 40, 40, 0.5),
+      rgba(20, 20, 20, 0.7) 70%
+    );
+  box-shadow:
+    inset 0 0 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* WhatsApp icon centered inside the fan hub */
+.footer__ac-wa-icon {
+  color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(37, 211, 102, 0.12) 0%,
+    transparent 70%
+  );
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover: spin fan + glow copper */
+.footer__ac-btn:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 0 2px #d4883c,
+    0 0 0 5px #c87533,
+    0 0 0 7px #a0551e,
+    0 0 0 9px #8b4513,
+    inset 0 0 0 3px rgba(200, 117, 51, 0.35),
+    inset 0 0 18px rgba(200, 117, 51, 0.2),
+    0 6px 30px rgba(200, 117, 51, 0.2);
+}
+
+.footer__ac-btn:hover .footer__ac-fan {
+  animation: acFanSpin 3s linear infinite;
+}
+
+.footer__ac-btn:hover .footer__ac-wa-icon {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.footer__ac-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes acFanSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .footer__cta-btn {
   width: 80px;
   height: 80px;

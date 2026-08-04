@@ -17,14 +17,34 @@ const ServiceIcons = {
     </svg>
   ),
 
-  RooftopUnits: () => (
+  AirConditioning: () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="10" width="20" height="11" rx="1" />
-      <rect x="6" y="6" width="12" height="4" rx="1" />
-      <path d="M9 6V4" />
-      <path d="M15 6V4" />
-      <circle cx="12" cy="15" r="2" />
-      <path d="M10 15h4" />
+      <path d="M12 2v4" />
+      <path d="M12 18v4" />
+      <path d="M8 12H4" />
+      <path d="M20 12h-4" />
+      <path d="M9 7l-3-3" />
+      <path d="M15 7l3-3" />
+      <path d="M9 17l-3 3" />
+      <path d="M15 17l3 3" />
+      <rect x="8" y="12" width="8" height="6" rx="1" />
+      <path d="M10 12V9a2 2 0 014 0v3" />
+    </svg>
+  ),
+
+  Heating: () => (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2v4" />
+      <path d="M12 18v4" />
+      <path d="M8 12H4" />
+      <path d="M20 12h-4" />
+      <path d="M15 5l3-3" />
+      <path d="M9 5L6 2" />
+      <path d="M9 19l-3 3" />
+      <path d="M15 19l3 3" />
+      <rect x="8" y="9" width="8" height="6" rx="2" />
+      <path d="M10 12h4" />
+      <path d="M12 9v6" />
     </svg>
   ),
 

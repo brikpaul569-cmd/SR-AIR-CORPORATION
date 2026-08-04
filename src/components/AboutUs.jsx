@@ -13,26 +13,26 @@ function AboutUs() {
           <div className="about__title-accent"></div>
           <p className="about__text">{t('about.desc1')}</p>
           <p className="about__text">{t('about.desc2')}</p>
-          <div className="about__values">
+            <div className="about__values">
             <div className="about__value">
               <span className="about__value-icon">◆</span>
               <div>
-                <h4 className="about__value-title">{t('about.valueQuality')}</h4>
-                <p className="about__value-desc">{t('about.valueQualityDesc')}</p>
+                <h4 className="about__value-title">{t('about.valueCertified')}</h4>
+                <p className="about__value-desc">{t('about.valueCertifiedDesc')}</p>
               </div>
             </div>
             <div className="about__value">
               <span className="about__value-icon">◆</span>
               <div>
-                <h4 className="about__value-title">{t('about.valueIntegrity')}</h4>
-                <p className="about__value-desc">{t('about.valueIntegrityDesc')}</p>
+                <h4 className="about__value-title">{t('about.valueExperience')}</h4>
+                <p className="about__value-desc">{t('about.valueExperienceDesc')}</p>
               </div>
             </div>
             <div className="about__value">
               <span className="about__value-icon">◆</span>
               <div>
-                <h4 className="about__value-title">{t('about.valueReliability')}</h4>
-                <p className="about__value-desc">{t('about.valueReliabilityDesc')}</p>
+                <h4 className="about__value-title">{t('about.valueSpecialists')}</h4>
+                <p className="about__value-desc">{t('about.valueSpecialistsDesc')}</p>
               </div>
             </div>
           </div>
