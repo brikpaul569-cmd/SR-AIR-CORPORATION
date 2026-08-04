@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Globe } from 'lucide-react'
+import { Globe, Sun, Moon } from 'lucide-react'
 import WeatherBadge from './WeatherBadge'
 import './Navbar.css'
 
-function Navbar({ weather, onWeatherOverride }) {
+function Navbar({ weather, onWeatherOverride, theme, onToggleTheme }) {
   const { t, i18n } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -44,6 +44,15 @@ function Navbar({ weather, onWeatherOverride }) {
             onOverride={onWeatherOverride}
           />
         </div>
+
+        <button
+          className="navbar__theme"
+          onClick={onToggleTheme}
+          aria-label={theme === 'dark' ? t('nav.toggleThemeLight') : t('nav.toggleThemeDark')}
+          title={theme === 'dark' ? t('nav.toggleThemeLight') : t('nav.toggleThemeDark')}
+        >
+          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+        </button>
 
         <button
           className="navbar__lang"

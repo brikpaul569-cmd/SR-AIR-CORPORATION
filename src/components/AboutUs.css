@@ -1,6 +1,6 @@
 .about {
   padding: 6rem 2rem;
-  background: rgba(49, 49, 49, 0.55);
+  background: var(--bg-about);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   position: relative;
@@ -32,7 +32,7 @@
 .about__title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
 }
 
@@ -46,7 +46,7 @@
 .about__text {
   font-size: 1rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 1rem;
 }
@@ -74,14 +74,14 @@
 .about__value-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-white);
+  color: var(--text-primary);
   margin-bottom: 0.2rem;
 }
 
 .about__value-desc {
   font-size: 0.85rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .about__cta {
@@ -111,7 +111,7 @@
 .about__image-placeholder {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  background: var(--bg-placeholder-gradient);
   border: 2px solid rgba(255, 193, 7, 0.3);
   border-radius: 8px;
   display: flex;
@@ -136,7 +136,7 @@
 .about__image-subtext {
   font-size: 0.85rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
 }
 
 @media (max-width: 768px) {

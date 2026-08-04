@@ -7,7 +7,9 @@
     "cta": "CONTACT",
     "toggleMenu": "Toggle menu",
     "logoAlt": "SR Air Corporation",
-    "toggleLang": "Switch language"
+    "toggleLang": "Switch language",
+    "toggleThemeLight": "Switch to light mode",
+    "toggleThemeDark": "Switch to dark mode"
   },
   "hero": {
     "brand": "SR AIR CORPORATION",
