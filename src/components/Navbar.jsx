@@ -4,7 +4,7 @@ import { Globe } from 'lucide-react'
 import WeatherBadge from './WeatherBadge'
 import './Navbar.css'
 
-function Navbar({ onContactOpen, weather, onWeatherOverride }) {
+function Navbar({ weather, onWeatherOverride }) {
   const { t, i18n } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -43,19 +43,17 @@ function Navbar({ onContactOpen, weather, onWeatherOverride }) {
             city={weather.city}
             onOverride={onWeatherOverride}
           />
-          <button
-            className="navbar__lang"
-            onClick={() => i18n.changeLanguage(i18n.language?.startsWith('es') ? 'en' : 'es')}
-            aria-label={t('nav.toggleLang')}
-            title={i18n.language?.startsWith('es') ? 'Switch to English' : 'Cambiar a Español'}
-          >
-            <Globe size={18} />
-            <span>{i18n.language?.startsWith('es') ? 'ES' : 'EN'}</span>
-          </button>
-          <button className="navbar__cta" onClick={onContactOpen}>
-            {t('nav.cta')}
-          </button>
         </div>
+
+        <button
+          className="navbar__lang"
+          onClick={() => i18n.changeLanguage(i18n.language?.startsWith('es') ? 'en' : 'es')}
+          aria-label={t('nav.toggleLang')}
+          title={i18n.language?.startsWith('es') ? 'Switch to English' : 'Cambiar a Español'}
+        >
+          <Globe size={16} />
+          <span>{i18n.language?.startsWith('es') ? 'ES' : 'EN'}</span>
+        </button>
 
         <button
           className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}

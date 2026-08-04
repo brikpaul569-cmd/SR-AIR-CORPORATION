@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Phone, Mail, Globe, MapPin, QrCode } from 'lucide-react';
+import { Phone, Mail, Globe, MapPin } from 'lucide-react';
 import './TruckShowcase.css';
 
 const TruckShowcase = () => {
@@ -36,7 +36,7 @@ const TruckShowcase = () => {
 
         <div className="truck-showcase__image-wrapper">
           <img
-            src="/references/sinfondo2.png"
+            src="/references/2SAT.png"
             alt={t('truckShowcase.imgAlt')}
             className="truck-showcase__image"
           />
@@ -45,41 +45,37 @@ const TruckShowcase = () => {
           </span>
         </div>
 
-        <div className="truck-showcase__info-panel">
-          <div className="truck-showcase__brand">
-            <div className="truck-showcase__logo">{t('truckShowcase.logo')}</div>
-            <div>
-              <h3>{t('truckShowcase.brandTitle')} <span>{t('truckShowcase.brandTitleAccent')}</span></h3>
-              <p>{t('truckShowcase.brandSubtitle')}</p>
+        <div className="truck-showcase__card">
+          <div className="truck-showcase__card-content">
+            <div className="truck-showcase__card-brand">
+              <h3 className="truck-showcase__card-company">SR AIR CORPORATION</h3>
+              <p className="truck-showcase__card-tagline">COMERCIAL • INDUSTRIAL • RESIDENCIAL HVAC</p>
             </div>
-          </div>
 
-          <div className="truck-showcase__president">
-            <span>{t('truckShowcase.presidentName')}</span> | {t('truckShowcase.presidentLabel')}
-          </div>
+            <div className="truck-showcase__card-divider"></div>
 
-          <div className="truck-showcase__contact-grid">
-            <a href="tel:+17206804049" className="truck-showcase__contact-item">
-              <Phone size={18} />
-              <span>(720) 680-4049</span>
-            </a>
-            <a href="mailto:srair.contracting@gmail.com" className="truck-showcase__contact-item">
-              <Mail size={18} />
-              <span>srair.contracting@gmail.com</span>
-            </a>
-            <a href="https://sraircorp.com" target="_blank" rel="noreferrer" className="truck-showcase__contact-item">
-              <Globe size={18} />
-              <span>sraircorp.com</span>
-            </a>
-            <div className="truck-showcase__contact-item">
-              <MapPin size={18} />
-              <span>Longmont, Colorado</span>
+            <p className="truck-showcase__card-name">
+              <span className="truck-showcase__card-name-highlight">Saith S. Rojas</span> | Presidente
+            </p>
+
+            <div className="truck-showcase__card-contact">
+              <div className="truck-showcase__card-contact-item">
+                <Phone size={14} />
+                <span>(720) 680-4049</span>
+              </div>
+              <div className="truck-showcase__card-contact-item">
+                <Mail size={14} />
+                <span>srair.contracting@gmail.com</span>
+              </div>
+              <div className="truck-showcase__card-contact-item">
+                <Globe size={14} />
+                <span>sraircorp.com</span>
+              </div>
+              <div className="truck-showcase__card-contact-item">
+                <MapPin size={14} />
+                <span>Longmont, Colorado</span>
+              </div>
             </div>
-          </div>
-
-          <div className="truck-showcase__qr">
-            <QrCode size={40} />
-            <span>{t('truckShowcase.qrLabel')}<br />{t('truckShowcase.qrSubLabel')}</span>
           </div>
         </div>
 

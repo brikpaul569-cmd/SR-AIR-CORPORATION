@@ -79,9 +79,10 @@ function ContactForm({ isOpen, onClose }) {
                   <label htmlFor="service">{t('contact.serviceLabel')}</label>
                   <select id="service" name="service" value={formData.service} onChange={handleChange} required>
                     <option value="">{t('contact.servicePlaceholder')}</option>
+                    <option value="airconditioning">{t('contact.serviceAirConditioning')}</option>
+                    <option value="heating">{t('contact.serviceHeating')}</option>
                     <option value="commercial">{t('contact.serviceCommercial')}</option>
                     <option value="residential">{t('contact.serviceResidential')}</option>
-                    <option value="rooftop">{t('contact.serviceRooftop')}</option>
                     <option value="refrigeration">{t('contact.serviceRefrigeration')}</option>
                     <option value="vrf">{t('contact.serviceVrf')}</option>
                     <option value="chillers">{t('contact.serviceChillers')}</option>

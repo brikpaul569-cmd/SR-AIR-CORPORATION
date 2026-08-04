@@ -44,18 +44,17 @@ function App() {
     >
       <WeatherEffects condition={weather.condition} />
       <Navbar
-        onContactOpen={openContact}
         weather={weather}
         onWeatherOverride={setWeatherOverride}
       />
       <main>
-        <Hero onContactOpen={openContact} />
+        <Hero />
         <Services />
         <TruckShowcase />
         <AboutUs />
         <Stats />
       </main>
-      <Footer />
+      <Footer onContactOpen={openContact} />
       <ContactForm isOpen={contactOpen} onClose={closeContact} />
     </div>
   )

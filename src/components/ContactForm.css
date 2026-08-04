@@ -78,6 +78,10 @@
   gap: 1.25rem;
 }
 
+.modal__row > * {
+  min-width: 0;
+}
+
 .modal__field {
   display: flex;
   flex-direction: column;
@@ -95,6 +99,7 @@
 .modal__field input,
 .modal__field select,
 .modal__field textarea {
+  width: 100%;
   background: rgba(26, 26, 26, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;

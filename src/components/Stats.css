@@ -1,6 +1,8 @@
 .stats {
   padding: 5rem 2rem;
-  background: transparent;
+  background: rgba(56, 56, 56, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border-top: 2px solid var(--color-gold);
   border-bottom: 2px solid var(--color-gold);
 }

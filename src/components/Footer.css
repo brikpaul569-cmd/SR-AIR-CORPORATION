@@ -1,6 +1,7 @@
 .footer {
-  background: rgba(13, 13, 13, 0.9);
-  backdrop-filter: blur(10px);
+  background: rgba(63, 63, 63, 0.5);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border-top: 1px solid rgba(255, 193, 7, 0.2);
   color: #ccc;
   padding: 4rem 1.5rem 2rem;
@@ -24,17 +25,6 @@
 .footer__qr {
   display: flex;
   align-items: center;
-}
-
-.footer__brand {
-  display: flex;
-  align-items: center;
-}
-
-.footer__brand-logo {
-  height: 65px;
-  width: auto;
-  display: block;
 }
 
 .footer__contact {
@@ -135,6 +125,57 @@
   background: var(--color-gold);
   color: var(--color-black);
   transform: translateY(-3px);
+}
+
+.footer__cta {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 1.5rem;
+}
+
+.footer__cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Normal round call button */
+.footer__round-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold);
+  background: transparent;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer__round-btn:hover {
+  background: var(--color-gold);
+  color: #0d0d0d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+}
+
+.footer__round-btn:active {
+  transform: scale(0.95);
+}
+
+/* WhatsApp button keeps brand green */
+.footer__round-btn--whatsapp {
+  border-color: #25D366;
+  color: #25D366;
+}
+
+.footer__round-btn--whatsapp:hover {
+  background: #25D366;
+  color: #0d0d0d;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
 }
 
 @media (max-width: 768px) {

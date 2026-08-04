@@ -30,7 +30,7 @@ function Stats() {
   const sectionRef = useRef(null)
 
   const stats = [
-    { value: 15, suffix: '+', label: t('stats.yearsExperience') },
+    { value: 10, suffix: '+', label: t('stats.yearsExperience') },
     { value: 500, suffix: '+', label: t('stats.projectsCompleted') },
     { value: 1000, suffix: '+', label: t('stats.satisfiedClients') },
   ]
