@@ -1,7 +1,9 @@
 .truck-showcase {
   --scroll-progress: 0;
   position: relative;
-  background: #2a2a2a;
+  background: rgba(42, 42, 42, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   padding: 6rem 1.5rem;
   color: #fff;
   overflow: hidden;
