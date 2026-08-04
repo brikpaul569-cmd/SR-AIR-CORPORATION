@@ -12,10 +12,6 @@ const Footer = ({ onContactOpen }) => {
       <div className="footer__container">
 
         <div className="footer__top">
-          <div className="footer__brand">
-            <img src="/references/sr-logo.png" alt={t('footer.logoAlt')} className="footer__brand-logo" />
-          </div>
-
           <div className="footer__contact">
             <a href="tel:+17206804049" className="footer__contact-item">
               <Phone size={18} />

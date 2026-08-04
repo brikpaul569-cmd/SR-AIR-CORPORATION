@@ -36,7 +36,7 @@ const TruckShowcase = () => {
 
         <div className="truck-showcase__image-wrapper">
           <img
-            src="/references/2SAT.png"
+            src="/references/black.png"
             alt={t('truckShowcase.imgAlt')}
             className="truck-showcase__image"
           />

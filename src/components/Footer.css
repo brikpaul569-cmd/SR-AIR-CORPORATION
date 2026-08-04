@@ -1,5 +1,5 @@
 .footer {
-  background: rgba(13, 13, 13, 0.9);
+  background: #3f3f3f;
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 193, 7, 0.2);
   color: #ccc;
@@ -24,17 +24,6 @@
 .footer__qr {
   display: flex;
   align-items: center;
-}
-
-.footer__brand {
-  display: flex;
-  align-items: center;
-}
-
-.footer__brand-logo {
-  height: 65px;
-  width: auto;
-  display: block;
 }
 
 .footer__contact {
