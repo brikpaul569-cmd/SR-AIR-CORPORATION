@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import blackImg from '../../references/black.png'
+
 import { Phone, ShieldCheck, Wrench, Clock } from 'lucide-react'
 import './Hero.css'
 
@@ -70,7 +72,7 @@ function Hero() {
           ref={imageRef}
         >
           <img
-            src="/references/black.png"
+            src={blackImg}
             alt={t('hero.imgAlt')}
             className="hero__image"
           />

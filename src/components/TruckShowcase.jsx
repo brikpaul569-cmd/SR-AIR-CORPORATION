@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Phone, Mail, Globe, MapPin } from 'lucide-react';
+import truckImg from '../../references/2SAT.png';
 import './TruckShowcase.css';
 
 const TruckShowcase = () => {
@@ -36,7 +37,7 @@ const TruckShowcase = () => {
 
         <div className="truck-showcase__image-wrapper">
           <img
-            src="/references/2SAT.png"
+            src={truckImg}
             alt={t('truckShowcase.imgAlt')}
             className="truck-showcase__image"
           />

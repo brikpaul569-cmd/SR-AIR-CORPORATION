@@ -26,7 +26,7 @@ function Navbar({ weather, onWeatherOverride }) {
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container">
         <a href="#inicio" className="navbar__logo" onClick={(e) => handleNavClick(e, 'inicio')}>
-          <img src="/references/sr-logo.png" alt={t('nav.logoAlt')} className="navbar__logo-img" />
+          <img src={`${import.meta.env.BASE_URL}references/sr-logo.png`} alt={t('nav.logoAlt')} className="navbar__logo-img" />
         </a>
 
         <nav className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
