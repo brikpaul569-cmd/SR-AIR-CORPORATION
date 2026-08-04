@@ -140,6 +140,12 @@
   text-align: center;
 }
 
+.footer__bottom .footer__social {
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
 .footer__back-top {
   width: 40px;
   height: 40px;
