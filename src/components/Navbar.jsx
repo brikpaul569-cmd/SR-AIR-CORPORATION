@@ -27,7 +27,7 @@ function Navbar({ weather, onWeatherOverride, theme, onToggleTheme }) {
       <div className="navbar__container">
         <a href="#inicio" className="navbar__logo" onClick={(e) => handleNavClick(e, 'inicio')}>
           <img
-            src={`${import.meta.env.BASE_URL}references/${theme === 'dark' ? 'sr-logo.png' : 'sr-logo-dark.svg'}`}
+            src={`${import.meta.env.BASE_URL}references/${theme === 'dark' ? 'sr-logo.png' : 'sr-logo-dark.png'}`}
             alt={t('nav.logoAlt')}
             className="navbar__logo-img"
           />
