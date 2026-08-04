@@ -7,7 +7,9 @@
     "cta": "CONTACTO",
     "toggleMenu": "Abrir menú",
     "logoAlt": "SR Air Corporation",
-    "toggleLang": "Cambiar idioma"
+    "toggleLang": "Cambiar idioma",
+    "toggleThemeLight": "Cambiar a modo claro",
+    "toggleThemeDark": "Cambiar a modo oscuro"
   },
   "hero": {
     "brand": "SR AIR CORPORATION",

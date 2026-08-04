@@ -6,7 +6,7 @@
 }
 
 .qr__frame {
-  background: rgba(13, 13, 13, 0.8);
+  background: var(--bg-translucent);
   border: 2px solid var(--color-gold);
   border-radius: 12px;
   padding: 12px;
@@ -23,7 +23,7 @@
 
 .qr__label {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   text-align: center;
   line-height: 1.4;
   margin: 0;

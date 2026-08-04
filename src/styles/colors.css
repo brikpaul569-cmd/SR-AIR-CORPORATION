@@ -8,3 +8,85 @@
   --color-overlay: rgba(13, 13, 13, 0.80);
   --transition-smooth: all 0.3s ease;
 }
+
+/* Semantic theme tokens — dark (default) */
+:root {
+  --bg-base: #0d0d0d;
+  --bg-body-gradient: linear-gradient(180deg, #0d0d0d, #141414 40%, #1a1a1a);
+  --bg-hero: rgba(13, 13, 13, 0.55);
+  --bg-services: rgba(34, 34, 34, 0.55);
+  --bg-truck: rgba(42, 42, 42, 0.55);
+  --bg-about: rgba(49, 49, 49, 0.55);
+  --bg-stats: rgba(56, 56, 56, 0.55);
+  --bg-footer: rgba(63, 63, 63, 0.5);
+  --bg-card: #1a1a1a;
+  --bg-card-gradient: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(20, 20, 20, 0.95));
+  --bg-frame-gradient: linear-gradient(145deg, rgba(13, 13, 13, 0.45), rgba(20, 20, 20, 0.72));
+  --bg-placeholder-gradient: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  --bg-elevated: rgba(26, 26, 26, 0.95);
+  --bg-overlay-tint: rgba(18, 18, 18, 0.58);
+  --bg-translucent: rgba(13, 13, 13, 0.85);
+  --bg-translucent-strong: rgba(13, 13, 13, 0.95);
+  --bg-chip: rgba(255, 255, 255, 0.08);
+  --bg-chip-hover: rgba(255, 255, 255, 0.12);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-faint: rgba(255, 255, 255, 0.35);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --shadow-strong: rgba(0, 0, 0, 0.6);
+  --shadow-soft: rgba(0, 0, 0, 0.3);
+  --modal-backdrop: rgba(0, 0, 0, 0.75);
+  --input-bg: rgba(26, 26, 26, 0.6);
+  --input-border: rgba(255, 255, 255, 0.12);
+  --gold-glow: rgba(255, 193, 7, 0.3);
+  --gold-border: rgba(255, 193, 7, 0.25);
+  --success-green: #25d366;
+  --success-green-dark: #1eb857;
+  --color-social-tiktok: #ffffff;
+  --app-bg-image:
+    radial-gradient(1100px 550px at 85% -10%, rgba(255, 193, 7, 0.10), transparent 60%),
+    radial-gradient(900px 520px at -10% 40%, rgba(255, 193, 7, 0.06), transparent 60%),
+    radial-gradient(700px 700px at 110% 75%, rgba(255, 193, 7, 0.05), transparent 55%),
+    linear-gradient(180deg, #0d0d0d, #141414 40%, #1a1a1a);
+}
+
+[data-theme='light'] {
+  --bg-base: #ffffff;
+  --bg-body-gradient: linear-gradient(180deg, #ffffff, #ffffff 40%, #fafaf8);
+  --bg-hero: rgba(255, 255, 255, 0.85);
+  --bg-services: rgba(255, 255, 255, 0.9);
+  --bg-truck: rgba(255, 255, 255, 0.9);
+  --bg-about: rgba(255, 255, 255, 0.9);
+  --bg-stats: rgba(255, 255, 255, 0.95);
+  --bg-footer: rgba(255, 255, 255, 0.95);
+  --bg-card: #ffffff;
+  --bg-card-gradient: linear-gradient(145deg, #ffffff, #fefefe);
+  --bg-frame-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 249, 0.98));
+  --bg-placeholder-gradient: linear-gradient(135deg, #f5f5f3, #ebebe8);
+  --bg-elevated: rgba(255, 255, 255, 0.97);
+  --bg-overlay-tint: rgba(255, 255, 255, 0.45);
+  --bg-translucent: rgba(255, 255, 255, 0.9);
+  --bg-translucent-strong: rgba(255, 255, 255, 0.97);
+  --bg-chip: rgba(22, 22, 22, 0.06);
+  --bg-chip-hover: rgba(22, 22, 22, 0.1);
+  --text-primary: #161616;
+  --text-secondary: rgba(22, 22, 22, 0.72);
+  --text-muted: rgba(22, 22, 22, 0.55);
+  --text-faint: rgba(22, 22, 22, 0.4);
+  --border-subtle: rgba(22, 22, 22, 0.12);
+  --border-strong: rgba(22, 22, 22, 0.2);
+  --shadow-strong: rgba(0, 0, 0, 0.2);
+  --shadow-soft: rgba(0, 0, 0, 0.12);
+  --modal-backdrop: rgba(0, 0, 0, 0.4);
+  --input-bg: #ffffff;
+  --input-border: rgba(0, 0, 0, 0.15);
+  --gold-glow: rgba(255, 193, 7, 0.35);
+  --gold-border: rgba(255, 193, 7, 0.5);
+  --color-social-tiktok: #0d0d0d;
+  --app-bg-image:
+    radial-gradient(1100px 550px at 85% -10%, rgba(255, 193, 7, 0.14), transparent 60%),
+    radial-gradient(900px 520px at -10% 40%, rgba(255, 193, 7, 0.08), transparent 60%),
+    radial-gradient(700px 700px at 110% 75%, rgba(255, 193, 7, 0.06), transparent 55%);
+}

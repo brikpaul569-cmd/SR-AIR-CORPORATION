@@ -10,10 +10,10 @@
 }
 
 .navbar--scrolled {
-  background: rgba(13, 13, 13, 0.85);
+  background: var(--bg-translucent);
   backdrop-filter: blur(10px);
   padding: 0.75rem 0;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 20px var(--shadow-soft);
 }
 
 .navbar__container {
@@ -44,7 +44,7 @@
 .navbar__links a {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--color-white);
+  color: var(--text-primary);
   transition: var(--transition-smooth);
   position: relative;
 }
@@ -66,6 +66,12 @@
 
 .navbar__links a:hover::after {
   width: 100%;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .navbar__lang {
@@ -98,6 +104,37 @@
   transform: scale(0.92);
 }
 
+/* Floating theme toggle — outside the header flow, below the lang switch */
+.navbar__theme {
+  position: fixed;
+  top: 4rem;
+  right: 1rem;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--bg-chip);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  color: var(--color-gold);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.navbar__theme:hover {
+  opacity: 1;
+  background: var(--bg-chip-hover);
+}
+
+.navbar__theme:active {
+  transform: scale(0.92);
+}
+
 .navbar__cta {
   background: var(--color-gold);
   color: var(--color-black);
@@ -126,7 +163,7 @@
   display: block;
   width: 25px;
   height: 2px;
-  background: var(--color-white);
+  background: var(--text-primary);
   transition: var(--transition-smooth);
   transform-origin: center;
 }
@@ -148,13 +185,7 @@
     display: flex;
   }
 
-.navbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.navbar__cta {
+  .navbar__cta {
     display: none;
   }
 
@@ -164,7 +195,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(13, 13, 13, 0.95);
+    background: var(--bg-translucent-strong);
     backdrop-filter: blur(12px);
     flex-direction: column;
     align-items: center;
