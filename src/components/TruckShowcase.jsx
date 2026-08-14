@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Phone, Mail, Globe, MapPin } from 'lucide-react';
-import truckImg from '../../references/2SAT.png';
+import truckImg from '../../references/black.png';
 import './TruckShowcase.css';
 
 const TruckShowcase = () => {
@@ -63,6 +63,11 @@ const TruckShowcase = () => {
               <div className="truck-showcase__card-contact-item">
                 <Phone size={14} />
                 <span>(720) 680-4049</span>
+              </div>
+              {/* PLACEHOLDER — replace with the client's second number when provided */}
+              <div className="truck-showcase__card-contact-item">
+                <Phone size={14} />
+                <span>(123) 123-1234</span>
               </div>
               <div className="truck-showcase__card-contact-item">
                 <Mail size={14} />
