@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import heroImg from '../../references/2SAT.png'
+const heroImg = `${import.meta.env.BASE_URL}references/negra.webp`
 
 import { Phone, ShieldCheck, Wrench, Clock } from 'lucide-react'
 import './Hero.css'

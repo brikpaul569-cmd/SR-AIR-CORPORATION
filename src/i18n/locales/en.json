@@ -59,7 +59,12 @@
     "qrSubLabel": "For a Quote",
     "trustLicensed": "Licensed & Insured",
     "trustEmergency": "24/7 Emergency Service",
-    "trustValues": "Quality • Integrity • Reliability"
+    "trustValues": "Quality • Integrity • Reliability",
+    "featInstall": { "title": "Installations", "desc": "New HVAC systems for commercial and residential properties" },
+    "featVRF": { "title": "VRF Systems", "desc": "Variable refrigerant flow for energy-efficient climate control" },
+    "featMaintenance": { "title": "Preventive Maintenance", "desc": "Scheduled service plans to keep your system running" },
+    "featEmergency": { "title": "24/7 Emergency", "desc": "Round-the-clock response when you need it most" },
+    "fleetTagline": "From new installs to emergency repairs — <strong>we keep Colorado comfortable</strong>"
   },
   "about": {
     "title": "ABOUT SR AIR CORPORATION",

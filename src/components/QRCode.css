@@ -7,7 +7,7 @@
 
 .qr__frame {
   background: var(--bg-translucent);
-  border: 2px solid var(--color-gold);
+  border: none;
   border-radius: 12px;
   padding: 12px;
   display: flex;
@@ -42,7 +42,7 @@
 }
 
 .qr--footer .qr__frame {
-  border-width: 3px;
+  border: none;
   padding: 14px;
 }
 

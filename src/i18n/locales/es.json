@@ -59,7 +59,12 @@
     "qrSubLabel": "Para un Presupuesto",
     "trustLicensed": "Licenciados y Asegurados",
     "trustEmergency": "Servicio de Emergencia 24/7",
-    "trustValues": "Calidad • Integridad • Confiabilidad"
+    "trustValues": "Calidad • Integridad • Confiabilidad",
+    "featInstall": { "title": "Instalaciones", "desc": "Nuevos sistemas HVAC para propiedades comerciales y residenciales" },
+    "featVRF": { "title": "Sistemas VRF", "desc": "Flujo de refrigerante variable para climatización eficiente" },
+    "featMaintenance": { "title": "Mantenimiento", "desc": "Planes de servicio programados para mantener tu sistema" },
+    "featEmergency": { "title": "Emergencia 24/7", "desc": "Respuesta inmediata cuando más lo necesitás" },
+    "fleetTagline": "Desde instalaciones nuevas hasta reparaciones de emergencia — <strong>mantenemos a Colorado cómodo</strong>"
   },
   "about": {
     "title": "SOBRE SR AIR CORPORATION",

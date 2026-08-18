@@ -1,8 +1,17 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Phone, Mail, Globe, MapPin } from 'lucide-react';
-import truckImg from '../../references/black.png';
+import { Zap, Thermometer, ShieldCheck, Clock } from 'lucide-react';
+
+const truckImg = `${import.meta.env.BASE_URL}references/gris.webp`;
+const tarjetaImg = `${import.meta.env.BASE_URL}references/EDICIONFINAL-clean.png`;
 import './TruckShowcase.css';
+
+const features = [
+  { icon: Zap, titleKey: 'truckShowcase.featInstall.title', descKey: 'truckShowcase.featInstall.desc' },
+  { icon: Thermometer, titleKey: 'truckShowcase.featVRF.title', descKey: 'truckShowcase.featVRF.desc' },
+  { icon: ShieldCheck, titleKey: 'truckShowcase.featMaintenance.title', descKey: 'truckShowcase.featMaintenance.desc' },
+  { icon: Clock, titleKey: 'truckShowcase.featEmergency.title', descKey: 'truckShowcase.featEmergency.desc' },
+];
 
 const TruckShowcase = () => {
   const { t } = useTranslation();
@@ -46,43 +55,25 @@ const TruckShowcase = () => {
           </span>
         </div>
 
-        <div className="truck-showcase__card">
-          <div className="truck-showcase__card-content">
-            <div className="truck-showcase__card-brand">
-              <h3 className="truck-showcase__card-company">SR AIR CORPORATION</h3>
-              <p className="truck-showcase__card-tagline">COMERCIAL • INDUSTRIAL • RESIDENCIAL HVAC</p>
+        <div className="truck-showcase__features">
+          {features.map((f, i) => (
+            <div className="truck-showcase__feature" key={i}>
+              <f.icon size={28} className="truck-showcase__feature-icon" />
+              <p className="truck-showcase__feature-title">{t(f.titleKey)}</p>
+              <p className="truck-showcase__feature-desc">{t(f.descKey)}</p>
             </div>
+          ))}
+        </div>
 
-            <div className="truck-showcase__card-divider"></div>
+        <div className="truck-showcase__divider"></div>
+        <p className="truck-showcase__tagline" dangerouslySetInnerHTML={{ __html: t('truckShowcase.fleetTagline') }} />
 
-            <p className="truck-showcase__card-name">
-              <span className="truck-showcase__card-name-highlight">Saith S. Rojas</span> | Presidente
-            </p>
-
-            <div className="truck-showcase__card-contact">
-              <div className="truck-showcase__card-contact-item">
-                <Phone size={14} />
-                <span>(720) 680-4049</span>
-              </div>
-              {/* PLACEHOLDER — replace with the client's second number when provided */}
-              <div className="truck-showcase__card-contact-item">
-                <Phone size={14} />
-                <span>(123) 123-1234</span>
-              </div>
-              <div className="truck-showcase__card-contact-item">
-                <Mail size={14} />
-                <span>srair.contracting@gmail.com</span>
-              </div>
-              <div className="truck-showcase__card-contact-item">
-                <Globe size={14} />
-                <span>sraircorp.com</span>
-              </div>
-              <div className="truck-showcase__card-contact-item">
-                <MapPin size={14} />
-                <span>Longmont, Colorado</span>
-              </div>
-            </div>
-          </div>
+        <div className="truck-showcase__tarjeta">
+          <img
+            src={tarjetaImg}
+            alt="SR Air Corporation — Tarjeta de presentación"
+            className="truck-showcase__tarjeta-img"
+          />
         </div>
 
         <div className="truck-showcase__trust-badges">
