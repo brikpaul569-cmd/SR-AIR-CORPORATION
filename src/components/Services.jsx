@@ -49,8 +49,9 @@ const SERVICES_DATA = [
     titleKey: 'services.card.preventiveMaintenance',
     descKey: 'services.card.preventiveMaintenanceDesc',
     images: [
-      { type: 'image', src: `${BASE}references/street.jpg` },
-      { type: 'image', src: `${BASE}references/gris.webp` },
+      { type: 'image', src: `${BASE}references/comercial-club-house.webp` },
+      { type: 'image', src: `${BASE}references/fan-coils-en-deluxe-az.webp` },
+      { type: 'image', src: `${BASE}references/comercial-delux-phoenix-az.webp` },
     ],
   },
   {
@@ -58,7 +59,9 @@ const SERVICES_DATA = [
     titleKey: 'services.card.emergency247',
     descKey: 'services.card.emergency247Desc',
     images: [
-      { type: 'image', src: `${BASE}references/street.jpg` },
+      { type: 'image', src: `${BASE}references/comercial-club-house-phoenix-az.webp` },
+      { type: 'image', src: `${BASE}references/club-house-phoenix-az.webp` },
+      { type: 'image', src: `${BASE}references/residencial.webp` },
     ],
   },
 ]
