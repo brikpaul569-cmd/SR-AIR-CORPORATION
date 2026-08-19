@@ -150,16 +150,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 3.5rem 2rem 2rem;
+  overflow: hidden;
 }
 
 .services__carousel-overlay .carousel {
   width: 100%;
   max-width: 900px;
+  max-height: calc(100vh - 5.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.services__carousel-overlay .carousel__viewport {
+  flex: 1;
+  min-height: 0;
+}
+
+.services__carousel-overlay .carousel__track {
+  height: 100%;
+}
+
+.services__carousel-overlay .carousel__slide {
+  height: 100%;
+}
+
+.services__carousel-overlay .carousel__media {
+  height: 100%;
 }
 
 @media (max-width: 768px) {
   .services__carousel-overlay {
-    padding: 1rem;
+    padding: 3rem 1rem 1rem;
   }
 }
