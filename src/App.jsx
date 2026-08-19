@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import TruckShowcase from './components/TruckShowcase'
 import AboutUs from './components/AboutUs'
+import OurWorks from './components/OurWorks/OurWorks'
 import Stats from './components/Stats'
 import Footer from './components/Footer'
 import ContactForm from './components/ContactForm'
@@ -72,6 +73,7 @@ function App() {
         <Services />
         <TruckShowcase />
         <AboutUs />
+        <OurWorks />
         <Stats />
       </main>
       <Footer onContactOpen={openContact} />

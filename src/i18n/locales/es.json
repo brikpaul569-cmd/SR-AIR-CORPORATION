@@ -150,5 +150,9 @@
     "prev": "Diapositiva anterior",
     "next": "Diapositiva siguiente",
     "slideOf": "Diapositiva {{current}} de {{total}}"
+  },
+  "works": {
+    "title": "Nuestros Trabajos",
+    "subtitle": "Proyectos y mantenimiento en acción"
   }
 }
