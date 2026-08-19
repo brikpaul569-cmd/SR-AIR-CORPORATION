@@ -58,7 +58,7 @@ function App() {
   return (
     <div
       className="app"
-      style={{ '--weather-tint': theme === 'light' ? 'rgba(255,255,255,0.45)' : weather.theme.tint }}
+      style={{ '--weather-tint': theme === 'light' ? weather.theme.tintLight : weather.theme.tint, '--weather-accent': weather.theme.accent }}
     >
       <WeatherEffects condition={weather.condition} />
       <Navbar

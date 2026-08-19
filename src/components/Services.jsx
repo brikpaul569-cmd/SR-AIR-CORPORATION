@@ -2,17 +2,47 @@ import { useTranslation } from 'react-i18next'
 import ServiceIcons from './ServiceIcons'
 import './Services.css'
 
+const SERVICES_DATA = [
+  {
+    iconKey: 'Heating',
+    titleKey: 'services.card.heating',
+    descKey: 'services.card.heatingDesc',
+  },
+  {
+    iconKey: 'CommercialHVAC',
+    titleKey: 'services.card.commercialHvac',
+    descKey: 'services.card.commercialHvacDesc',
+  },
+  {
+    iconKey: 'ResidentialHVAC',
+    titleKey: 'services.card.residentialHvac',
+    descKey: 'services.card.residentialHvacDesc',
+  },
+  {
+    iconKey: 'VRFSystems',
+    titleKey: 'services.card.vrfSystems',
+    descKey: 'services.card.vrfSystemsDesc',
+  },
+  {
+    iconKey: 'PreventiveMaintenance',
+    titleKey: 'services.card.preventiveMaintenance',
+    descKey: 'services.card.preventiveMaintenanceDesc',
+  },
+  {
+    iconKey: 'Emergency247',
+    titleKey: 'services.card.emergency247',
+    descKey: 'services.card.emergency247Desc',
+  },
+]
+
 function Services() {
   const { t } = useTranslation()
 
-  const services = [
-    { Icon: ServiceIcons.Heating, title: t('services.card.heating'), description: t('services.card.heatingDesc') },
-    { Icon: ServiceIcons.CommercialHVAC, title: t('services.card.commercialHvac'), description: t('services.card.commercialHvacDesc') },
-    { Icon: ServiceIcons.ResidentialHVAC, title: t('services.card.residentialHvac'), description: t('services.card.residentialHvacDesc') },
-    { Icon: ServiceIcons.VRFSystems, title: t('services.card.vrfSystems'), description: t('services.card.vrfSystemsDesc') },
-    { Icon: ServiceIcons.PreventiveMaintenance, title: t('services.card.preventiveMaintenance'), description: t('services.card.preventiveMaintenanceDesc') },
-    { Icon: ServiceIcons.Emergency247, title: t('services.card.emergency247'), description: t('services.card.emergency247Desc') },
-  ]
+  const services = SERVICES_DATA.map((s) => ({
+    Icon: ServiceIcons[s.iconKey],
+    title: t(s.titleKey),
+    description: t(s.descKey),
+  }))
 
   return (
     <section className="services" id="servicios">

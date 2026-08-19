@@ -47,8 +47,6 @@ function Hero() {
   return (
     <section className="hero" id="inicio" ref={sectionRef}>
       <div className="hero__scroll-overlay"></div>
-      <div className="hero__diagonal-line"></div>
-      <div className="hero__diagonal-line-2"></div>
 
       <div className="hero__container">
         <div className="hero__text">

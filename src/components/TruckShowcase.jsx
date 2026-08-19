@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Zap, Thermometer, ShieldCheck, Clock } from 'lucide-react';
 
 const truckImg = `${import.meta.env.BASE_URL}references/gris.webp`;
-const tarjetaImg = `${import.meta.env.BASE_URL}references/EDICIONFINAL-clean.png`;
+const tarjetaImg = `${import.meta.env.BASE_URL}references/EDICIONFINAL.png`;
 import './TruckShowcase.css';
 
 const features = [

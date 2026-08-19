@@ -100,7 +100,8 @@
 
 .truck-showcase__tarjeta {
   position: relative;
-  max-width: 480px;
+  width: 100%;
+  max-width: 800px;
   margin: 3rem auto;
   overflow: visible;
   box-shadow: none;

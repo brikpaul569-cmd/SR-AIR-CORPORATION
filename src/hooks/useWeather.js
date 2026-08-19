@@ -18,19 +18,23 @@ const WEATHER_MAP = {
 
 const THEME_BY_WEATHER = {
   clear: {
-    tint: 'rgba(20, 15, 5, 0.80)',
+    tint: 'rgba(30, 20, 5, 0.75)',
+    tintLight: 'rgba(255, 230, 150, 0.18)',
     accent: '#ffc107',
   },
   clouds: {
-    tint: 'rgba(15, 15, 18, 0.84)',
+    tint: 'rgba(20, 22, 30, 0.82)',
+    tintLight: 'rgba(160, 170, 190, 0.22)',
     accent: '#a0a0a0',
   },
   rain: {
-    tint: 'rgba(8, 12, 25, 0.85)',
+    tint: 'rgba(8, 14, 35, 0.88)',
+    tintLight: 'rgba(80, 120, 180, 0.15)',
     accent: '#60a5fa',
   },
   snow: {
-    tint: 'rgba(12, 18, 30, 0.83)',
+    tint: 'rgba(15, 22, 40, 0.85)',
+    tintLight: 'rgba(180, 210, 240, 0.18)',
     accent: '#67e8f9',
   },
 }
