@@ -2,16 +2,18 @@
   position: relative;
 }
 
+/* ── Mobile base ─────────────────────────────────────────────────────── */
+
 .weather-badge__main {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.25rem;
   background: var(--bg-chip);
   border: 1px solid var(--border-subtle);
   border-radius: 20px;
-  padding: 0.35rem 0.75rem;
+  padding: 0.2rem 0.4rem;
   color: var(--text-secondary);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -26,6 +28,8 @@
 .weather-badge__main svg {
   color: var(--color-gold);
   flex-shrink: 0;
+  width: 12px;
+  height: 12px;
 }
 
 .weather-badge__temp {
@@ -34,21 +38,28 @@
 }
 
 .weather-badge__city {
-  opacity: 0.6;
+  display: none;
 }
 
 .weather-badge__dropdown {
-  position: absolute;
-  top: calc(100% + 8px);
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
   right: 0;
   background: var(--bg-elevated);
   border: 1px solid rgba(255, 193, 7, 0.2);
-  border-radius: 8px;
-  padding: 0.75rem;
-  min-width: 180px;
+  border-radius: 12px 12px 0 0;
+  padding: 1rem;
+  min-width: 0;
   z-index: 100;
   box-shadow: 0 10px 30px var(--shadow-strong);
-  animation: badgeFadeIn 0.15s ease;
+  animation: badgeSlideUp 0.2s ease;
+}
+
+@keyframes badgeSlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 @keyframes badgeFadeIn {
@@ -78,9 +89,9 @@
   background: var(--bg-chip);
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
-  padding: 0.35rem 0.6rem;
+  padding: 0.3rem 0.5rem;
   color: var(--text-secondary);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -97,48 +108,38 @@
   color: var(--color-gold);
 }
 
-@media (max-width: 768px) {
+/* ── Tablet 768px+ ──────────────────────────────────────────────────── */
+@media (min-width: 768px) {
   .weather-badge__main {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.65rem;
-    gap: 0.25rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.7rem;
+    gap: 0.4rem;
   }
 
   .weather-badge__main svg {
-    width: 12px;
-    height: 12px;
+    width: auto;
+    height: auto;
   }
 
   .weather-badge__city {
-    display: none;
+    display: inline;
+    opacity: 0.6;
   }
 
   .weather-badge__dropdown {
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    left: 0;
+    position: absolute;
+    top: calc(100% + 8px);
+    bottom: auto;
+    left: auto;
     right: 0;
-    border-radius: 12px 12px 0 0;
-    padding: 1rem;
-    min-width: 0;
-    animation: badgeSlideUp 0.2s ease;
-  }
-}
-
-@keyframes badgeSlideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-@media (max-width: 480px) {
-  .weather-badge__main {
-    padding: 0.2rem 0.4rem;
-    font-size: 0.6rem;
+    border-radius: 8px;
+    padding: 0.75rem;
+    min-width: 180px;
+    animation: badgeFadeIn 0.15s ease;
   }
 
   .weather-badge__option {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.65rem;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.7rem;
   }
 }

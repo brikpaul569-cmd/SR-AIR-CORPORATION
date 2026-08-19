@@ -1,0 +1,205 @@
+/* ─── CSS Custom Properties ─────────────────────────────────────────────── */
+:root {
+  --ic-gap: 0.75rem;
+  --ic-slide-height: 60vw;
+  --ic-arrow-size: 44px;
+  --ic-dot-size: 10px;
+  --ic-radius: 8px;
+  --ic-bg: var(--bg-card, #1a1a1a);
+  --ic-text: var(--text-primary, #ffffff);
+  --ic-gold: var(--color-gold, #ffc107);
+  --ic-overlay: rgba(13, 13, 13, 0.85);
+}
+
+/* ─── Base (Mobile-First) ─────────────────────────────────────────────── */
+.ic {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Viewport */
+.ic__viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--ic-radius);
+}
+
+/* Track */
+.ic__track {
+  display: flex;
+  gap: var(--ic-gap);
+}
+
+/* Slide */
+.ic__slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+  height: var(--ic-slide-height);
+}
+
+/* Media */
+.ic__media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--ic-radius);
+  pointer-events: none;
+}
+
+/* ─── Close button ─────────────────────────────────────────────────────── */
+.ic__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(13, 13, 13, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ic__close:hover {
+    background: var(--ic-gold);
+    color: #0d0d0d;
+    border-color: var(--ic-gold);
+    transform: scale(1.08);
+  }
+}
+
+/* ─── Arrows ────────────────────────────────────────────────────────────── */
+.ic__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 193, 7, 0.9);
+  color: #0d0d0d;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.ic__arrow:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ic__arrow:not(:disabled):hover {
+    background: var(--ic-gold);
+    transform: translateY(-50%) scale(1.08);
+  }
+}
+
+.ic__arrow--prev {
+  left: 0.5rem;
+}
+
+.ic__arrow--next {
+  right: 0.5rem;
+}
+
+/* ─── Dots ──────────────────────────────────────────────────────────────── */
+.ic__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0 0;
+}
+
+.ic__dot {
+  width: var(--ic-dot-size);
+  height: var(--ic-dot-size);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  padding: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ic__dot:hover {
+    border-color: var(--ic-gold);
+  }
+}
+
+.ic__dot--active {
+  background: var(--ic-gold);
+  border-color: var(--ic-gold);
+}
+
+/* ─── Tablet (min-width: 768px) ────────────────────────────────────────── */
+@media (min-width: 768px) {
+  :root {
+    --ic-gap: 1rem;
+    --ic-slide-height: 40vw;
+    --ic-arrow-size: 48px;
+    --ic-dot-size: 12px;
+    --ic-radius: 10px;
+  }
+
+  .ic__close {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .ic__arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ic__arrow--prev {
+    left: 1rem;
+  }
+
+  .ic__arrow--next {
+    right: 1rem;
+  }
+
+  .ic__dots {
+    gap: 0.625rem;
+    padding: 1rem 0 0;
+  }
+}
+
+/* ─── Desktop (min-width: 1024px) ──────────────────────────────────────── */
+@media (min-width: 1024px) {
+  :root {
+    --ic-slide-height: 35vw;
+    --ic-radius: 12px;
+  }
+
+  .ic__close {
+    top: 1rem;
+    right: 1rem;
+  }
+}

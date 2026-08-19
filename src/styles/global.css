@@ -57,6 +57,17 @@ button {
   outline: none;
 }
 
+/* ── Touch targets, tap highlight & user-select ──────────────────────── */
+a, button, [role="button"], input, select, textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(255, 193, 7, 0.15);
+}
+
+img, svg {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

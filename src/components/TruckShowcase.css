@@ -98,10 +98,12 @@
   font-size: 0.8rem;
 }
 
+/* ── Mobile base ─────────────────────────────────────────────────────── */
+
 .truck-showcase__tarjeta {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 90%;
   margin: 3rem auto;
   overflow: visible;
   box-shadow: none;
@@ -138,14 +140,6 @@
   100% { background-position: -200% 0; }
 }
 
-.truck-showcase__tarjeta:hover {
-  transform: perspective(800px) rotateX(2deg) rotateY(-2deg) scale(1.03);
-}
-
-.truck-showcase__tarjeta:hover::before {
-  animation-duration: 2s;
-}
-
 .truck-showcase__tarjeta-img {
   width: 100%;
   height: auto;
@@ -157,7 +151,7 @@
 /* Feature highlights row */
 .truck-showcase__features {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin: 3rem auto;
   max-width: 900px;
@@ -174,12 +168,6 @@
   background: rgba(255, 193, 7, 0.04);
   border: 1px solid rgba(255, 193, 7, 0.08);
   transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-}
-
-.truck-showcase__feature:hover {
-  background: rgba(255, 193, 7, 0.08);
-  border-color: rgba(255, 193, 7, 0.2);
-  transform: translateY(-3px);
 }
 
 .truck-showcase__feature-icon {
@@ -235,19 +223,38 @@
   font-size: 0.85rem;
 }
 
-@media (max-width: 768px) {
-  .truck-showcase__tarjeta {
-    max-width: 90%;
-  }
-
+/* ── Tablet 768px+ ──────────────────────────────────────────────────── */
+@media (min-width: 768px) {
   .truck-showcase__features {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 }
 
-@media (max-width: 480px) {
+/* ── Desktop 1024px+ ────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .truck-showcase__tarjeta {
+    max-width: 800px;
+  }
+
   .truck-showcase__features {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Hover transforms — pointer devices only ─────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .truck-showcase__tarjeta:hover {
+    transform: perspective(800px) rotateX(2deg) rotateY(-2deg) scale(1.03);
+  }
+
+  .truck-showcase__tarjeta:hover::before {
+    animation-duration: 2s;
+  }
+
+  .truck-showcase__feature:hover {
+    background: rgba(255, 193, 7, 0.08);
+    border-color: rgba(255, 193, 7, 0.2);
+    transform: translateY(-3px);
   }
 }

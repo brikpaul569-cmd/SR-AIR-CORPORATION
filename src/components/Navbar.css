@@ -36,17 +36,33 @@
   display: block;
 }
 
+/* ── Mobile base ─────────────────────────────────────────────────────── */
+
 .navbar__links {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-translucent-strong);
+  backdrop-filter: blur(12px);
   display: flex;
-  gap: 2.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.navbar__links--open {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .navbar__links a {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  transition: var(--transition-smooth);
-  position: relative;
+  font-size: 1.25rem;
 }
 
 .navbar__links a::after {
@@ -75,12 +91,11 @@
 }
 
 .navbar__lang {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1100;
+  position: static;
+  margin-left: auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.3rem;
   background: none;
   border: none;
@@ -94,6 +109,8 @@
   transition: opacity 0.2s ease;
   padding: 0.35rem;
   line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .navbar__lang:hover {
@@ -104,7 +121,7 @@
   transform: scale(0.92);
 }
 
-/* Floating theme toggle — outside the header flow, below the lang switch */
+/* Floating theme toggle — outside the header flow */
 .navbar__theme {
   position: fixed;
   top: 4rem;
@@ -113,8 +130,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   background: var(--bg-chip);
   border: 1px solid var(--border-subtle);
   border-radius: 50%;
@@ -136,6 +153,7 @@
 }
 
 .navbar__cta {
+  display: none;
   background: var(--color-gold);
   color: var(--color-black);
   padding: 0.6rem 1.5rem;
@@ -146,17 +164,17 @@
   transition: var(--transition-smooth);
 }
 
-.navbar__cta:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-1px);
-}
-
 .navbar__hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   background: none;
   padding: 4px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
 }
 
 .navbar__hamburger span {
@@ -180,43 +198,49 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-@media (max-width: 768px) {
+/* ── Desktop 768px+ ─────────────────────────────────────────────────── */
+@media (min-width: 768px) {
   .navbar__hamburger {
-    display: flex;
-  }
-
-  .navbar__lang {
-    position: static;
-    margin-left: auto;
-  }
-
-  .navbar__cta {
     display: none;
   }
 
   .navbar__links {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg-translucent-strong);
-    backdrop-filter: blur(12px);
-    flex-direction: column;
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    background: none;
+    backdrop-filter: none;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .navbar__links--open {
+    justify-content: flex-start;
+    gap: 2.5rem;
     opacity: 1;
     pointer-events: all;
   }
 
   .navbar__links a {
-    font-size: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .navbar__lang {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    margin-left: 0;
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .navbar__cta {
+    display: inline-block;
+  }
+}
+
+/* ── Hover transforms — pointer devices only ─────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .navbar__cta:hover {
+    transform: translateY(-1px);
   }
 }

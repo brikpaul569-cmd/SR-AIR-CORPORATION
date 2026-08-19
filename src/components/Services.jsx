@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ServiceIcons from './ServiceIcons'
-import Carousel from './Carousel/Carousel'
+import ImageCarousel from './ImageCarousel/ImageCarousel'
 import './Services.css'
 
 const BASE = import.meta.env.BASE_URL
@@ -79,15 +79,6 @@ function Services() {
 
   const selected = selectedService !== null ? services[selectedService] : null
 
-  useEffect(() => {
-    if (selected) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => { document.body.style.overflow = '' }
-  }, [selected])
-
   return (
     <section className="services" id="servicios">
       <div className="services__container">
@@ -116,9 +107,8 @@ function Services() {
 
       {selected && (
         <div className="services__carousel-overlay">
-          <Carousel
+          <ImageCarousel
             slides={selected.images}
-            variant="gallery"
             onClose={() => setSelectedService(null)}
           />
         </div>

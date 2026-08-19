@@ -1,5 +1,5 @@
 .about {
-  padding: 6rem 2rem;
+  padding: 4rem 1.5rem;
   background: var(--bg-about);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
@@ -17,11 +17,14 @@
   opacity: 0.15;
 }
 
+/* ── Mobile base ─────────────────────────────────────────────────────── */
+
 .about__container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  gap: 4rem;
+  flex-direction: column;
+  gap: 2.5rem;
   align-items: center;
 }
 
@@ -98,14 +101,9 @@
   transition: var(--transition-smooth);
 }
 
-.about__cta:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.25);
-}
-
 .about__image {
   flex: 0.8;
+  width: 100%;
 }
 
 .about__image-placeholder {
@@ -122,10 +120,6 @@
   transition: transform 0.3s ease;
 }
 
-.about__image-placeholder:hover {
-  transform: scale(1.02);
-}
-
 .about__image-text {
   font-size: 2rem;
   font-weight: 700;
@@ -139,19 +133,31 @@
   color: var(--text-muted);
 }
 
-@media (max-width: 768px) {
+/* ── Desktop 1024px+ ────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .about {
+    padding: 6rem 2rem;
+  }
+
   .about__container {
-    flex-direction: column;
-    gap: 2.5rem;
+    flex-direction: row;
+    gap: 4rem;
   }
 
   .about__image {
-    width: 100%;
+    width: auto;
   }
 }
 
-@media (max-width: 480px) {
-  .about {
-    padding: 4rem 1.5rem;
+/* ── Hover transforms — pointer devices only ─────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .about__cta:hover {
+    background: var(--color-gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.25);
+  }
+
+  .about__image-placeholder:hover {
+    transform: scale(1.02);
   }
 }
