@@ -28,19 +28,56 @@
   margin: 0 auto 1rem;
 }
 
-.our-works__subtitle {
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--text-muted, #ffffff80);
-  margin-bottom: 2.5rem;
-}
+  .our-works__subtitle {
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-muted, #ffffff80);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Toggle button: muestra/oculta las filas de videos */
+  .our-works__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0 auto 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-gold, #ffc107);
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .our-works__toggle:hover {
+    background: rgba(255, 193, 7, 0.2);
+  }
+
+  /* Icon rotation: 180° cuando está abierto */
+  .our-works__toggle-icon {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .our-works__toggle-icon--open {
+    transform: rotate(180deg);
+  }
 
 /* ─── Rows Container ─────────────────────────────────────────────────── */
+/* Container colapsable: maxHeight + opacity para transición suave */
 .our-works__rows {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ─── WorksRow ────────────────────────────────────────────────────────── */

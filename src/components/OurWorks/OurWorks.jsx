@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import useEmblaCarousel from 'embla-carousel-react'
-import { Play } from 'lucide-react'
+import { Play, ChevronDown } from 'lucide-react'
 import { WORKS_SECTIONS } from '../../data/worksData'
 import VideoModal from './VideoModal'
 import './OurWorks.css'
@@ -117,6 +117,7 @@ function WorksRow({ title, videos, onPlay }) {
 function OurWorks() {
   const { t } = useTranslation()
   const [activeVideoId, setActiveVideoId] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   const handlePlay = useCallback((videoId) => {
     setActiveVideoId(videoId)
@@ -126,15 +127,45 @@ function OurWorks() {
     setActiveVideoId(null)
   }, [])
 
+  const toggleOpen = useCallback(() => {
+    setIsOpen((prev) => !prev)
+  }, [])
+
   return (
     <section className="our-works" id="trabajos">
       <div className="our-works__container">
-        <h2 className="our-works__title">{t('works.title', 'Nuestros Trabajos')}</h2>
-        <p className="our-works__subtitle">
-          {t('works.subtitle', 'Proyectos y mantenimiento en acción')}
-        </p>
+        <div className="our-works__header">
+          <h2 className="our-works__title">{t('works.title', 'Nuestros Trabajos')}</h2>
+          <p className="our-works__subtitle">
+            {t('works.subtitle', 'Proyectos y mantenimiento en acción')}
+          </p>
+          {/* Botón toggle: colapsa / expande las filas de videos */}
+          <button
+            className={`our-works__toggle ${isOpen ? 'our-works__toggle--open' : ''}`}
+            onClick={toggleOpen}
+            aria-expanded={isOpen}
+            aria-label={isOpen ? 'Ocultar trabajos' : 'Ver trabajos'}
+            type="button"
+          >
+            <span>{isOpen ? 'Ocultar' : 'Ver proyectos'}</span>
+            <i
+              className={`our-works__toggle-icon ${isOpen ? 'our-works__toggle-icon--open' : ''}`}
+              aria-hidden="true"
+            >
+              <ChevronDown size={20} />
+            </i>
+          </button>
+        </div>
 
-        <div className="our-works__rows">
+        {/* Rows: colapsable con transición de altura */}
+        <div
+          className="our-works__rows"
+          style={{
+            maxHeight: isOpen ? '2000px' : '0',
+            opacity: isOpen ? 1 : 0,
+            pointerEvents: isOpen ? 'auto' : 'none',
+          }}
+        >
           {WORKS_SECTIONS.map((section) => (
             <WorksRow
               key={section.id}
