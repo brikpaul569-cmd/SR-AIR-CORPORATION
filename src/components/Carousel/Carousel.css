@@ -341,24 +341,28 @@
 /* ─── Close button ─────────────────────────────────────────────────────── */
 .carousel__close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border: none;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  background: rgba(255, 193, 7, 0.9);
-  color: #0d0d0d;
+  background: rgba(13, 13, 13, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
   cursor: pointer;
   transition: var(--transition-smooth);
 }
 
 .carousel__close:hover {
   background: var(--carousel-gold);
+  color: #0d0d0d;
+  border-color: var(--carousel-gold);
   transform: scale(1.08);
 }
 
@@ -430,6 +434,7 @@
     height: 36px;
     top: 0.5rem;
     right: 0.5rem;
+    border-width: 1.5px;
   }
 
   .carousel__close svg {
@@ -482,8 +487,9 @@
   .carousel__close {
     width: 32px;
     height: 32px;
-    top: 0.25rem;
-    right: 0.25rem;
+    top: 0.375rem;
+    right: 0.375rem;
+    border-width: 1px;
   }
 
   .carousel__close svg {

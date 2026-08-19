@@ -98,7 +98,47 @@
 }
 
 @media (max-width: 768px) {
-  .weather-badge {
+  .weather-badge__main {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+    gap: 0.25rem;
+  }
+
+  .weather-badge__main svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .weather-badge__city {
     display: none;
+  }
+
+  .weather-badge__dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 12px 12px 0 0;
+    padding: 1rem;
+    min-width: 0;
+    animation: badgeSlideUp 0.2s ease;
+  }
+}
+
+@keyframes badgeSlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .weather-badge__main {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.6rem;
+  }
+
+  .weather-badge__option {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.65rem;
   }
 }
