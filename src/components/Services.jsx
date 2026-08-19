@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import ServiceIcons from './ServiceIcons'
 import ImageCarousel from './ImageCarousel/ImageCarousel'
@@ -105,13 +106,14 @@ function Services() {
         </div>
       </div>
 
-      {selected && (
+      {selected && createPortal(
         <div className="services__carousel-overlay">
           <ImageCarousel
             slides={selected.images}
             onClose={() => setSelectedService(null)}
           />
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   )
