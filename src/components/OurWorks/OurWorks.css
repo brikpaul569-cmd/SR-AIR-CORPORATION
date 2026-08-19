@@ -1,0 +1,266 @@
+/* ─── OurWorks (Mobile-First) ──────────────────────────────────────────── */
+.our-works {
+  padding: 4rem 1.5rem;
+  background: var(--bg-about, #313131);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+}
+
+.our-works__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.our-works__title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary, #ffffff);
+  margin-bottom: 0.75rem;
+}
+
+.our-works__title-accent {
+  width: 50px;
+  height: 3px;
+  background: var(--color-gold, #ffc107);
+  margin: 0 auto 1rem;
+}
+
+.our-works__subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-muted, #ffffff80);
+  margin-bottom: 2.5rem;
+}
+
+/* ─── Rows Container ─────────────────────────────────────────────────── */
+.our-works__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ─── WorksRow ────────────────────────────────────────────────────────── */
+.works-row {
+  position: relative;
+}
+
+.works-row__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary, #ffffff);
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+}
+
+/* Viewport: overflow horizontally hidden, embla ref here */
+.works-row__viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Crucial: embla controla eje X, libera eje Y para scroll nativo */
+  touch-action: pan-y;
+}
+
+/* Track: flex row con gap entre cards */
+.works-row__track {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0 0.5rem;
+}
+
+/* ─── Netflix Card ─────────────────────────────────────────────────────── */
+.netflix-card {
+  position: relative;
+  flex: 0 0 auto;
+  /* Ancho de card en mobile: ~60% del viewport */
+  width: 60vw;
+  max-width: 280px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  /* touch-action: manipulation para click instantáneo */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s ease;
+}
+
+.netflix-card:focus-visible {
+  outline: 2px solid var(--color-gold, #ffc107);
+  outline-offset: 2px;
+}
+
+/* Thumbnail: aspect-ratio 9/16 (Shorts vertical en mobile) */
+.works-card__thumb {
+  position: relative;
+  width: 100%;
+  /* Shorts: 9:16 vertical */
+  aspect-ratio: 9 / 16;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-dark-gray, #1a1a1a);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+/* Play icon overlay: siempre centrado */
+.works-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-gold, #ffc107);
+  color: var(--color-black, #0d0d0d);
+  box-shadow: 0 8px 24px rgba(255, 193, 7, 0.4);
+}
+
+/* Info debajo de la miniatura */
+.works-card__info {
+  margin-top: 0.75rem;
+}
+
+.works-card__title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary, #ffffff);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.works-card__meta {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--text-muted, #ffffff80);
+  line-height: 1.3;
+}
+
+/* ─── Desktop Nav Arrows (overlay) ─────────────────────────────────────── */
+.works-row__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: none; /* solo desktop */
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: rgba(13, 13, 13, 0.7);
+  color: var(--color-gold, #ffc107);
+  font-size: 1.5rem;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease;
+}
+
+.works-row__nav--prev { left: 0; }
+.works-row__nav--next { right: 0; }
+
+@media (hover: hover) and (pointer: fine) {
+  .works-row__nav {
+    display: flex;
+  }
+  .works-row__nav:hover {
+    background: var(--color-gold, #ffc107);
+    color: var(--color-black, #0d0d0d);
+  }
+}
+
+/* ─── Tablet (min-width: 768px) ────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .our-works {
+    padding: 5rem 2rem;
+  }
+
+  .our-works__title {
+    font-size: 1.9rem;
+  }
+
+  .our-works__subtitle {
+    font-size: 1rem;
+  }
+
+  .works-row__track {
+    gap: 1rem;
+  }
+
+  .netflix-card {
+    /* Desktop: ancho más grande */
+    width: 40vw;
+    max-width: 320px;
+  }
+}
+
+/* ─── Desktop (min-width: 1024px) ────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .our-works {
+    padding: 6rem 2rem;
+  }
+
+  .our-works__title {
+    font-size: 2.2rem;
+  }
+
+  .netflix-card {
+    /* Zoom escalado sobre hover — Netflix style */
+    /* transform: scale(1.15) + z-index: 10 en :hover */
+  }
+
+  .netflix-card:hover {
+    /* Efecto de zoom: solo pointer devices con hover */
+    position: relative;
+    z-index: 10;
+    transform: scale(1.15);
+  }
+
+  /* Revertir aspect ratio a 16:9 para thumbnail en desktop */
+  .works-card__thumb {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Play icon ligeramente más grande en desktop */
+  .works-card__play {
+    width: 72px;
+    height: 72px;
+  }
+
+  .works-card__title {
+    font-size: 1rem;
+  }
+}
+
+/* ─── Desktop Hover Zoom (hover+pointer fine ONLY) ─────────────────────── */
+/*
+  Regla específica para el efecto de zoom escalado.
+  Se aplica exclusivamente sobre @media (hover: hover) and (pointer: fine)
+  para NO afectar touch devices.
+*/
+@media (hover: hover) and (pointer: fine) {
+  @media (min-width: 1024px) {
+    .netflix-card {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .netflix-card:hover {
+      transform: scale(1.15);
+      z-index: 10;
+    }
+  }
+}

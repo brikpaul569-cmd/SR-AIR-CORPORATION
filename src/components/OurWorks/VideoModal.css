@@ -1,0 +1,85 @@
+/* ─── VideoModal Overlay (Mobile-First) ──────────────────────────────── */
+.video-modal__overlay {
+  /* fixed: anclado al viewport, no al scroll */
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* 100dvh/100vw: altura/ancho real en mobile (barra de scroll dinámica) */
+  width: 100vw;
+  height: 100dvh;
+  z-index: 2000;
+  /* fondo oscuro con blur de safe-area */
+  background: rgba(13, 13, 13, 0.92);
+  /* overflow:hidden: el overlay nunca scrollea */
+  overflow: hidden;
+  /* Flexbox: video centrado vertical y horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: env(safe-area-inset-top, 1rem) 1rem 1rem;
+}
+
+/* Close button: position fixed, siempre en esquina superior derecha del viewport */
+.video-modal__close {
+  position: fixed;
+  top: env(safe-area-inset-top, 1rem);
+  right: 1rem;
+  z-index: 2010; /* por encima del iframe */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: var(--color-gold, #ffc107);
+  color: var(--color-black, #0d0d0d);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .video-modal__close:hover {
+    background: var(--color-gold-light, #ffd54f);
+    transform: scale(1.08);
+  }
+}
+
+/* Contenedor responsive del video */
+.video-modal__container {
+  width: 100%;
+  max-width: 480px; /* ancho típico Shorts */
+  margin: 0 auto;
+}
+
+.video-modal__aspect {
+  position: relative;
+  /* Shorts: 9:16 vertical en mobile */
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(255, 193, 7, 0.15);
+  /* Ajuste de aspecto en desktop: 16:9 */
+}
+
+.video-modal__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ─── Desktop: video centrado 16:9 ────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .video-modal__aspect {
+    /* 16:9 para escritorio */
+    aspect-ratio: 16 / 9;
+    max-width: 800px;
+  }
+}

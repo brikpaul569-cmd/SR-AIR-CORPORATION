@@ -150,5 +150,9 @@
     "prev": "Previous slide",
     "next": "Next slide",
     "slideOf": "Slide {{current}} of {{total}}"
+  },
+  "works": {
+    "title": "Our Works",
+    "subtitle": "Projects and maintenance in action"
   }
 }
