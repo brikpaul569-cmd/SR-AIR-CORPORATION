@@ -13,6 +13,7 @@ const SERVICES_DATA = [
     descKey: 'services.card.heatingDesc',
     images: [
       { type: 'image', src: `${BASE}references/fan-coils-en-deluxe-az.webp` },
+      { type: 'image', src: `${BASE}references/gris.webp` },
     ],
   },
   {
@@ -23,6 +24,7 @@ const SERVICES_DATA = [
       { type: 'image', src: `${BASE}references/comercial-delux-phoenix-az.webp` },
       { type: 'image', src: `${BASE}references/comercial-club-house.webp` },
       { type: 'image', src: `${BASE}references/comercial-club-house-phoenix-az.webp` },
+      { type: 'image', src: `${BASE}references/club-house-phoenix-az.webp` },
     ],
   },
   {
