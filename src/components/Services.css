@@ -1,5 +1,6 @@
+/* ─── Services (Mobile-First) ─────────────────────────────────────────── */
 .services {
-  padding: 6rem 2rem;
+  padding: 4rem 1.5rem;
   background: var(--bg-services);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
@@ -24,34 +25,35 @@
 
 .services__title {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
 }
 
 .services__title-accent {
-  width: 50px;
+  width: 40px;
   height: 3px;
   background: var(--color-gold);
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 1rem;
 }
 
 .services__subtitle {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 300;
   color: var(--text-muted);
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Grid: 1 column on mobile */
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
 }
 
 .services__card {
@@ -59,10 +61,12 @@
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 193, 7, 0.15);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
-  transition: var(--transition-smooth);
+  transition: background 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(255, 193, 7, 0.15);
 }
 
 .services__card:focus-visible {
@@ -70,135 +74,171 @@
   outline-offset: 2px;
 }
 
-.services__card:hover {
-  background: var(--color-gold);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
-  border-color: var(--color-gold);
+@media (hover: hover) and (pointer: fine) {
+  .services__card:hover {
+    background: var(--color-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
+    border-color: var(--color-gold);
+  }
 }
 
 .services__card-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 1rem;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0.75rem;
   background: var(--color-gold);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-smooth);
+  transition: background 0.2s ease;
 }
 
 .services__card-icon svg {
   color: var(--color-black);
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
-.services__card:hover .services__card-icon {
-  background: rgba(13, 13, 13, 0.9);
-}
+@media (hover: hover) and (pointer: fine) {
+  .services__card:hover .services__card-icon {
+    background: rgba(13, 13, 13, 0.9);
+  }
 
-.services__card:hover .services__card-icon svg {
-  color: var(--color-gold);
+  .services__card:hover .services__card-icon svg {
+    color: var(--color-gold);
+  }
 }
 
 .services__card-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  transition: var(--transition-smooth);
+  margin-bottom: 0.4rem;
+  transition: color 0.2s ease;
 }
 
-.services__card:hover .services__card-title {
-  color: var(--color-black);
+@media (hover: hover) and (pointer: fine) {
+  .services__card:hover .services__card-title {
+    color: var(--color-black);
+  }
 }
 
 .services__card-desc {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 300;
   color: var(--text-secondary);
   line-height: 1.5;
 }
 
-@media (max-width: 768px) {
+/* ─── Tablet (min-width: 768px) ────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .services {
+    padding: 5rem 2rem;
+  }
+
+  .services__title {
+    font-size: 1.9rem;
+  }
+
+  .services__title-accent {
+    width: 45px;
+  }
+
+  .services__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+  }
+
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .services__card {
+    padding: 1.75rem;
+  }
+
+  .services__card-icon {
+    width: 58px;
+    height: 58px;
   }
 }
 
-@media (max-width: 480px) {
-  .services__grid {
-    grid-template-columns: 1fr;
-  }
-
+/* ─── Desktop (min-width: 1024px) ──────────────────────────────────────── */
+@media (min-width: 1024px) {
   .services {
-    padding: 4rem 1.5rem;
+    padding: 6rem 2rem;
+  }
+
+  .services__title {
+    font-size: 2.2rem;
+  }
+
+  .services__title-accent {
+    width: 50px;
+  }
+
+  .services__subtitle {
+    font-size: 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .services__card {
+    padding: 2rem;
+  }
+
+  .services__card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .services__card-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .services__card-title {
+    font-size: 1.1rem;
+  }
+
+  .services__card-desc {
+    font-size: 0.9rem;
   }
 }
 
-/* Carousel overlay */
+/* ─── Carousel overlay (Mobile-First) ──────────────────────────────────── */
 .services__carousel-overlay {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(13, 13, 13, 0.85);
+  background: var(--ic-overlay);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3.5rem 2rem 2rem;
+  padding: 3rem 1rem 1rem;
   overflow: hidden;
 }
 
-.services__carousel-overlay .carousel {
-  width: 100%;
-  max-width: 900px;
-  max-height: calc(100vh - 5.5rem);
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  overflow: hidden;
+.services__carousel-overlay .ic {
+  max-height: calc(100vh - 4rem);
 }
 
-.services__carousel-overlay .carousel__viewport {
-  flex: 1;
-  min-height: 0;
-}
-
-.services__carousel-overlay .carousel__track {
-  height: 100%;
-}
-
-.services__carousel-overlay .carousel__slide {
-  height: 100%;
-}
-
-.services__carousel-overlay .carousel__media {
-  height: 100%;
-}
-
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .services__carousel-overlay {
-    padding: 3rem 1rem 1rem;
+    padding: 3.5rem 2rem 2rem;
   }
 
-  .services__carousel-overlay .carousel {
-    max-height: calc(100vh - 4rem);
-    border-radius: 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  .services__carousel-overlay {
-    padding: 2.75rem 0.5rem 0.5rem;
-  }
-
-  .services__carousel-overlay .carousel {
-    max-height: calc(100vh - 3.5rem);
-    border-radius: 4px;
+  .services__carousel-overlay .ic {
+    max-height: calc(100vh - 5.5rem);
   }
 }

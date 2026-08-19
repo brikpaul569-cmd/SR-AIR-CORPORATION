@@ -12,10 +12,11 @@
   margin: 0 auto;
 }
 
+/* ── Mobile base ─────────────────────────────────────────────────────── */
+
 .footer__top {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-start;
   gap: 2.5rem;
   padding-bottom: 2.5rem;
@@ -57,8 +58,8 @@
 }
 
 .footer__social a {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border: 1px solid rgba(255, 193, 7, 0.33);
   border-radius: 50%;
   display: flex;
@@ -66,10 +67,6 @@
   justify-content: center;
   color: var(--color-gold);
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-}
-
-.footer__social a:hover {
-  transform: translateY(-2px);
 }
 
 /* Brand colors — Facebook */
@@ -96,7 +93,7 @@
   color: #ffffff;
 }
 
-/* Brand colors — TikTok (black on light, white on dark) */
+/* Brand colors — TikTok */
 .footer__social a.footer__social--tiktok {
   color: var(--color-social-tiktok);
   border-color: var(--border-subtle);
@@ -122,6 +119,7 @@
 
 .footer__bottom {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -147,8 +145,8 @@
 }
 
 .footer__back-top {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--color-gold);
   background: transparent;
   color: var(--color-gold);
@@ -158,14 +156,9 @@
   justify-content: center;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  position: absolute;
-  right: 0;
-}
-
-.footer__back-top:hover {
-  background: var(--color-gold);
-  color: var(--color-black);
-  transform: translateY(-3px);
+  position: static;
+  align-self: flex-end;
+  user-select: none;
 }
 
 .footer__cta {
@@ -196,13 +189,6 @@
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.footer__round-btn:hover {
-  background: var(--color-gold);
-  color: var(--color-black);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px var(--gold-glow);
-}
-
 .footer__round-btn:active {
   transform: scale(0.95);
 }
@@ -221,18 +207,40 @@
   box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
 
-@media (max-width: 768px) {
+/* ── Desktop 768px+ ─────────────────────────────────────────────────── */
+@media (min-width: 768px) {
   .footer__top {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .footer__bottom {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .footer__back-top {
-    position: static;
-    align-self: flex-end;
+    position: absolute;
+    right: 0;
+  }
+}
+
+/* ── Hover transforms — pointer devices only ─────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .footer__social a:hover {
+    transform: translateY(-2px);
+  }
+
+  .footer__back-top:hover {
+    background: var(--color-gold);
+    color: var(--color-black);
+    transform: translateY(-3px);
+  }
+
+  .footer__round-btn:hover {
+    background: var(--color-gold);
+    color: var(--color-black);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--gold-glow);
   }
 }
