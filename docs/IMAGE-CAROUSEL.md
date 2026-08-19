@@ -13,16 +13,17 @@
 
 ```
 Services.jsx (estado: selectedService)
-  └─ .services__carousel-overlay (fixed, full-screen, z-index: 1000)
-       └─ ImageCarousel (recibe slides[] + onClose)
-            ├─ .ic__close          ← botón X (lucide-react)
-            ├─ .ic__viewport       ← ref de embla (overflow: hidden)
-            │    └─ .ic__track     ← display: flex, gap
-            │         └─ .ic__slide × N  ← flex: 0 0 100%
-            │              └─ img / video
-            ├─ .ic__arrow--prev    ← ChevronLeft
-            ├─ .ic__arrow--next    ← ChevronRight
-            └─ .ic__dots           ← tablist con dots clickeables
+  └─ createPortal → document.body (escapa backdrop-filter de .services)
+       └─ .services__carousel-overlay (fixed, 100dvh, z-index: 1000)
+            └─ ImageCarousel (recibe slides[] + onClose)
+                 ├─ .ic__close          ← botón X (fixed viewport, z-index: 1010)
+                 ├─ .ic__viewport       ← ref de embla (flex:1, overflow: hidden)
+                 │    └─ .ic__track     ← display: flex, gap
+                 │         └─ .ic__slide × N  ← flex: 0 0 100%
+                 │              └─ img / video
+                 ├─ .ic__arrow--prev    ← ChevronLeft
+                 ├─ .ic__arrow--next    ← ChevronRight
+                 └─ .ic__dots           ← tablist con dots clickeables
 ```
 
 ---
@@ -137,9 +138,9 @@ Click X button o Escape
 ### Estructura del layout
 
 ```
-.ic (relative, max-width: 900px)
-  ├─ .ic__close (absolute, top-right, z-index: 20)
-  ├─ .ic__viewport (overflow: hidden)  ← embla ref aquí
+.ic (relative, max-width: 900px, max-height: 90dvh, flex column)
+  ├─ .ic__close (fixed, top: env(safe-area-inset-top), right: 1rem, z-index: 1010)
+  ├─ .ic__viewport (flex:1, min-height:0, overflow: hidden)  ← embla ref aquí
   │    └─ .ic__track (display: flex, gap)
   │         └─ .ic__slide (flex: 0 0 100%, height: var(--ic-slide-height))
   │              └─ .ic__media (object-fit: cover, 100% × 100%)
@@ -148,9 +149,17 @@ Click X button o Escape
   └─ .ic__dots (flex, centered, gap: 0.5rem)
 ```
 
-### Por qué `overflow: hidden` en el viewport
+### Por qué `createPortal` en `document.body`
 
-Embla funciona con CSS scroll-snap. El viewport tiene `overflow: hidden` y el track es un `flex` container que es más ancho que el viewport. El browser hace scroll interno y embla detecta los snaps para hacer snap a cada slide. Sin `overflow: hidden`, se verían todos los slides apilados horizontalmente.
+`Services.jsx` (.services) tiene `backdrop-filter: blur(14px)`, que crea un **containing block** para `position: fixed` de los hijos. Sin el portal, el overlay y la X se anclaban al `.services` (no al viewport), lo que hacía que se "subieran" al abrir desde cards en la parte inferior de la página. El portal los renderiza directamente en `document.body`, restaurando el posicionamiento `fixed` correcto.
+
+### Por qué `overflow: hidden` en el overlay
+
+El overlay tiene `height: 100dvh` y `overflow: hidden`. El carrusel (`.ic`) tiene `max-height: 90dvh` y `overflow-y: auto` para scroll interno solo si el contenido excede. Esto evita el scroll anchoring del navegador al montar el overlay.
+
+### Por qué `dvh` (dynamic viewport height)
+
+`100dvh` y `90dvh` usan la **dynamic viewport height** de CSS, que respeta la barra de navegación dinámica en mobile (Chrome/Safari). `100vh` incluye la barra de scroll, causando overflow. `100dvh` ajusta al alto real visible.
 
 ### Touch-friendly
 
@@ -163,6 +172,32 @@ Embla funciona con CSS scroll-snap. El viewport tiene `overflow: hidden` y el tr
 @media (hover: hover) and (pointer: fine) {
   /* Solo en desktop: hover effects con transform */
   .ic__arrow:not(:disabled):hover { transform: translateY(-50%) scale(1.08); }
+}
+```
+
+### Variables de posicionamiento (Mobile-First)
+
+```css
+:root {
+  --ic-gap: 0.75rem;
+  --ic-slide-height: 60vw;
+  --ic-arrow-size: 44px;
+  --ic-dot-size: 10px;
+  --ic-radius: 8px;
+  --ic-overlay: rgba(13, 13, 13, 0.85);
+}
+
+/* Breakpoints */
+@media (min-width: 768px) {
+  :root {
+    --ic-gap: 1rem;
+    --ic-slide-height: 40vw;
+    --ic-dot-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root { --ic-slide-height: 35vw; }
 }
 ```
 
@@ -184,9 +219,10 @@ Embla funciona con CSS scroll-snap. El viewport tiene `overflow: hidden` y el tr
 ## Integración con Services.jsx
 
 ```jsx
-// Services.jsx — solo 3 cambios clave:
+// Services.jsx — 3 cambios clave:
 
-// 1. Import
+// 1. Imports
+import { createPortal } from 'react-dom'
 import ImageCarousel from './ImageCarousel/ImageCarousel'
 
 // 2. Datos de slides (en SERVICES_DATA)
@@ -195,14 +231,15 @@ images: [
   { type: 'image', src: `${BASE}references/gris.webp` },
 ]
 
-// 3. Render (condicional)
-{selected && (
+// 3. Render — portal escapa backdrop-filter de .services
+{selected && createPortal(
   <div className="services__carousel-overlay">
     <ImageCarousel
       slides={selected.images}
       onClose={() => setSelectedService(null)}
     />
-  </div>
+  </div>,
+  document.body
 )}
 ```
 
@@ -215,6 +252,6 @@ El body scroll lock (`overflow: hidden`) lo maneja el propio ImageCarousel inter
 | Archivo | Líneas | Rol |
 |---------|--------|-----|
 | `src/components/ImageCarousel/ImageCarousel.jsx` | 171 | Componente principal |
-| `src/components/ImageCarousel/ImageCarousel.css` | 205 | Estilos mobile-first |
-| `src/components/Services.jsx` | 120 | Padre que gestiona estado y renderiza overlay |
-| `src/components/Services.css` | 244 | Grid de cards + estilos del overlay |
+| `src/components/ImageCarousel/ImageCarousel.css` | 217 | Estilos mobile-first |
+| `src/components/Services.jsx` | 120 | Padre que gestiona estado y renderiza overlay con portal |
+| `src/components/Services.css` | 236 | Grid de cards + estilos del overlay |
