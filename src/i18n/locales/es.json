@@ -143,5 +143,12 @@
     "clouds": "Nublado",
     "rain": "Lluvia",
     "snow": "Nieve"
+  },
+  "carousel": {
+    "ariaLabel": "Carrusel",
+    "close": "Cerrar carrusel",
+    "prev": "Diapositiva anterior",
+    "next": "Diapositiva siguiente",
+    "slideOf": "Diapositiva {{current}} de {{total}}"
   }
 }

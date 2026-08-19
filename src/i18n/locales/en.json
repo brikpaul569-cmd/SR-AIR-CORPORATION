@@ -143,5 +143,12 @@
     "clouds": "Clouds",
     "rain": "Rain",
     "snow": "Snow"
+  },
+  "carousel": {
+    "ariaLabel": "Carousel",
+    "close": "Close carousel",
+    "prev": "Previous slide",
+    "next": "Next slide",
+    "slideOf": "Slide {{current}} of {{total}}"
   }
 }
