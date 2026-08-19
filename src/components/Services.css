@@ -219,7 +219,8 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: var(--ic-overlay);
+  background: rgba(13, 13, 13, 0.85);
+  background: var(--ic-overlay, rgba(13, 13, 13, 0.85));
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
