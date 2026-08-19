@@ -231,6 +231,9 @@
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  /* Neutraliza saltos de scroll al montar el carrusel */
+  scroll-behavior: auto !important;
+  overflow-anchor: none;
 }
 
 .services__carousel-overlay .ic {

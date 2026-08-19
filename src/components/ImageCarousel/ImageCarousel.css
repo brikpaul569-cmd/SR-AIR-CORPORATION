@@ -18,6 +18,9 @@
   max-width: 900px;
   user-select: none;
   -webkit-user-select: none;
+  /* Previene scroll anchoring al montar dentro del overlay */
+  overflow-anchor: none;
+  contain: layout style;
 }
 
 /* Viewport */
