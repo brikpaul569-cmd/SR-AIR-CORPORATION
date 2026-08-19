@@ -63,7 +63,8 @@ function WorksRow({ title, videos, onPlay }) {
               <div
                 className="works-card__thumb"
                 style={{
-                  backgroundImage: `url(https://img.youtube.com/vi/${video.videoId}/hqresdefault.jpg)`,
+                  /* mqdefault: thumbnail disponible para todos los videos, incluyendo Shorts */
+                  backgroundImage: `url(https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg)`,
                 }}
               >
                 <div className="works-card__play">
