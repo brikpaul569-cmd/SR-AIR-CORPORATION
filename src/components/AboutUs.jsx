@@ -35,6 +35,13 @@ function AboutUs() {
                 <p className="about__value-desc">{t('about.valueSpecialistsDesc')}</p>
               </div>
             </div>
+            <div className="about__value">
+              <span className="about__value-icon">◆</span>
+              <div>
+                <h4 className="about__value-title">{t('about.valueColorado')}</h4>
+                <p className="about__value-desc">{t('about.valueColoradoDesc')}</p>
+              </div>
+            </div>
           </div>
           <a href="#contacto" className="about__cta">{t('about.cta')}</a>
         </div>

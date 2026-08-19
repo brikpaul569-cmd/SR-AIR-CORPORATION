@@ -16,6 +16,24 @@ function App() {
   const [weatherOverride, setWeatherOverride] = useState(null)
   const openContact = () => setContactOpen(true)
   const closeContact = () => setContactOpen(false)
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem('srTheme') || 'dark'
+      document.documentElement.setAttribute('data-theme', saved)
+      return saved
+    } catch {
+      return 'dark'
+    }
+  })
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    try {
+      localStorage.setItem('srTheme', theme)
+    } catch {}
+  }, [theme])
+
+  const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
 
   const weather = useWeather(weatherOverride)
 
@@ -40,12 +58,14 @@ function App() {
   return (
     <div
       className="app"
-      style={{ '--weather-tint': weather.theme.tint }}
+      style={{ '--weather-tint': theme === 'light' ? weather.theme.tintLight : weather.theme.tint, '--weather-accent': weather.theme.accent }}
     >
       <WeatherEffects condition={weather.condition} />
       <Navbar
         weather={weather}
         onWeatherOverride={setWeatherOverride}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
       <main>
         <Hero />

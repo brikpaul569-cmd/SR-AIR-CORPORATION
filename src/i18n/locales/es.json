@@ -7,7 +7,9 @@
     "cta": "CONTACTO",
     "toggleMenu": "Abrir menú",
     "logoAlt": "SR Air Corporation",
-    "toggleLang": "Cambiar idioma"
+    "toggleLang": "Cambiar idioma",
+    "toggleThemeLight": "Cambiar a modo claro",
+    "toggleThemeDark": "Cambiar a modo oscuro"
   },
   "hero": {
     "brand": "SR AIR CORPORATION",
@@ -28,31 +30,23 @@
     "subtitle": "Soluciones integrales de climatización para cada necesidad",
     "card": {
       "commercialHvac": "HVAC Comercial",
-      "commercialHvacDesc": "Control de clima completo para espacios comerciales",
+      "commercialHvacDesc": "Control de clima completo para espacios comerciales, incluidas bombas de calor",
       "residentialHvac": "HVAC Residencial",
       "residentialHvacDesc": "Sistemas de confort para su hogar",
-      "airConditioning": "Aire Acondicionado",
-      "airConditioningDesc": "Instalación, reparación y mantenimiento profesional de AC",
       "heating": "Sistemas de Calefacción",
       "heatingDesc": "Soluciones de calefacción eficientes para espacios comerciales y residenciales",
-      "refrigeration": "Refrigeración",
-      "refrigerationDesc": "Soluciones de enfriamiento industrial",
       "vrfSystems": "Sistemas VRF",
-      "vrfSystemsDesc": "Tecnología de flujo de refrigerante variable",
-      "chillers": "Enfriadores",
-      "chillersDesc": "Equipos de enfriamiento de gran escala",
-      "heatPumps": "Bombas de Calor",
-      "heatPumpsDesc": "Calefacción y refrigeración energéticamente eficientes",
+      "vrfSystemsDesc": "Tecnología VRF que regula internamente el entorno",
       "preventiveMaintenance": "Mantenimiento Preventivo",
       "preventiveMaintenanceDesc": "Programas de mantenimiento regulares",
       "emergency247": "Servicio de Emergencia 24/7",
-      "emergency247Desc": "Siempre disponibles cuando nos necesite"
+      "emergency247Desc": "Respuesta de emergencia 24/7 y soporte general urgente cuando nos necesite"
     }
   },
   "truckShowcase": {
     "eyebrow": "Nuestra Flota",
     "title": "Especialistas en HVAC Comercial",
-    "subtitle": "Aire Acondicionado • Calefacción • Refrigeración • Sistemas VRF • Enfriadores • Mantenimiento Preventivo",
+    "subtitle": "Calefacción • Sistemas VRF • Mantenimiento Preventivo",
     "imgAlt": "Vehículo de Servicio de SR Air Corporation",
     "emergencyBadge": "Servicio de Emergencia 24/7",
     "logo": "SR",
@@ -65,18 +59,25 @@
     "qrSubLabel": "Para un Presupuesto",
     "trustLicensed": "Licenciados y Asegurados",
     "trustEmergency": "Servicio de Emergencia 24/7",
-    "trustValues": "Calidad • Integridad • Confiabilidad"
+    "trustValues": "Calidad • Integridad • Confiabilidad",
+    "featInstall": { "title": "Instalaciones", "desc": "Nuevos sistemas HVAC para propiedades comerciales y residenciales" },
+    "featVRF": { "title": "Sistemas VRF", "desc": "Flujo de refrigerante variable para climatización eficiente" },
+    "featMaintenance": { "title": "Mantenimiento", "desc": "Planes de servicio programados para mantener tu sistema" },
+    "featEmergency": { "title": "Emergencia 24/7", "desc": "Respuesta inmediata cuando más lo necesitás" },
+    "fleetTagline": "Desde instalaciones nuevas hasta reparaciones de emergencia — <strong>mantenemos a Colorado cómodo</strong>"
   },
   "about": {
     "title": "SOBRE SR AIR CORPORATION",
     "desc1": "Brindamos soluciones HVAC de alta calidad para clientes comerciales y residenciales en Longmont, Colorado y áreas circundantes. Con más de 10 años de experiencia, nuestros técnicos certificados ofrecen un servicio confiable, eficiente y profesional en cada proyecto.",
     "desc2": "Desde nuevas instalaciones hasta reparaciones de emergencia, combinamos tecnología de punta con experiencia comprobada para garantizar su confort durante todo el año. La programación de los servicios se realiza de acuerdo con el orden de llegada de las llamadas o solicitudes de nuestros clientes.",
     "valueCertified": "Técnicos Certificados",
-    "valueCertifiedDesc": "Todos nuestros técnicos están certificados y capacitados para trabajar con los sistemas HVAC más modernos.",
+    "valueCertifiedDesc": "Técnicos certificados en toda la gama de equipos",
     "valueExperience": "Amplia Experiencia",
     "valueExperienceDesc": "Con más de 10 años en la industria HVAC, tenemos el conocimiento para manejar cualquier desafío.",
     "valueSpecialists": "Especialistas en HVAC",
     "valueSpecialistsDesc": "Especialistas en sistemas HVAC comerciales y residenciales, desde instalación hasta mantenimiento.",
+    "valueColorado": "En Todo Colorado",
+    "valueColoradoDesc": "Servicio HVAC en todo el estado",
     "cta": "MÁS INFORMACIÓN",
     "imageText": "HVAC",
     "imageSubtext": "Instalación Profesional"
@@ -142,5 +143,12 @@
     "clouds": "Nublado",
     "rain": "Lluvia",
     "snow": "Nieve"
+  },
+  "carousel": {
+    "ariaLabel": "Carrusel",
+    "close": "Cerrar carrusel",
+    "prev": "Diapositiva anterior",
+    "next": "Diapositiva siguiente",
+    "slideOf": "Diapositiva {{current}} de {{total}}"
   }
 }

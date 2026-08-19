@@ -2,10 +2,25 @@ import './WeatherEffects.css'
 
 function WeatherEffects({ condition }) {
   if (condition === 'clear') {
+    return <div className="weather-effects weather-effects--sun" />
+  }
+
+  if (condition === 'clouds') {
     return (
-      <div className="weather-effects weather-effects--sun">
-        <div className="weather-effects__glow"></div>
-        <div className="weather-effects__rays"></div>
+      <div className="weather-effects weather-effects--clouds">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div
+            key={i}
+            className="weather-effects__cloud"
+            style={{
+              top: `${5 + Math.random() * 40}%`,
+              animationDelay: `${Math.random() * 12}s`,
+              animationDuration: `${18 + Math.random() * 14}s`,
+              opacity: 0.15 + Math.random() * 0.2,
+              transform: `scale(${0.6 + Math.random() * 0.8})`,
+            }}
+          />
+        ))}
       </div>
     )
   }
@@ -13,15 +28,16 @@ function WeatherEffects({ condition }) {
   if (condition === 'rain') {
     return (
       <div className="weather-effects weather-effects--rain">
-        {Array.from({ length: 60 }).map((_, i) => (
+        <div className="weather-effects__lightning"></div>
+        {Array.from({ length: 80 }).map((_, i) => (
           <div
             key={i}
             className="weather-effects__drop"
             style={{
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 2}s`,
-              animationDuration: `${0.5 + Math.random() * 0.5}s`,
-              opacity: 0.2 + Math.random() * 0.3,
+              animationDuration: `${0.4 + Math.random() * 0.4}s`,
+              opacity: 0.3 + Math.random() * 0.4,
             }}
           />
         ))}
@@ -32,7 +48,7 @@ function WeatherEffects({ condition }) {
   if (condition === 'snow') {
     return (
       <div className="weather-effects weather-effects--snow">
-        {Array.from({ length: 40 }).map((_, i) => (
+        {Array.from({ length: 50 }).map((_, i) => (
           <div
             key={i}
             className="weather-effects__flake"
@@ -40,10 +56,12 @@ function WeatherEffects({ condition }) {
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
               animationDuration: `${4 + Math.random() * 4}s`,
-              fontSize: `${6 + Math.random() * 8}px`,
-              opacity: 0.3 + Math.random() * 0.4,
+              fontSize: `${10 + Math.random() * 14}px`,
+              opacity: 0.5 + Math.random() * 0.4,
             }}
-          />
+          >
+            {['❄', '❅', '❆', '•'][i % 4]}
+          </div>
         ))}
       </div>
     )

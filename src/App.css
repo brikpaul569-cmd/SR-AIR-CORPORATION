@@ -4,12 +4,8 @@
   flex-direction: column;
   position: relative;
   --weather-tint: rgba(18, 18, 18, 0.58);
-  background: #0d0d0d;
-  background-image:
-    radial-gradient(1100px 550px at 85% -10%, rgba(255, 193, 7, 0.10), transparent 60%),
-    radial-gradient(900px 520px at -10% 40%, rgba(255, 193, 7, 0.06), transparent 60%),
-    radial-gradient(700px 700px at 110% 75%, rgba(255, 193, 7, 0.05), transparent 55%),
-    linear-gradient(180deg, #0d0d0d, #141414 40%, #1a1a1a);
+  background: var(--bg-base);
+  background-image: var(--app-bg-image);
 }
 
 .app::before {
@@ -18,7 +14,7 @@
   inset: 0;
   background: var(--weather-tint);
   z-index: 0;
-  transition: background 1.2s ease;
+  transition: background 0.8s ease;
   -webkit-backdrop-filter: blur(18px) saturate(115%);
   backdrop-filter: blur(18px) saturate(115%);
 }

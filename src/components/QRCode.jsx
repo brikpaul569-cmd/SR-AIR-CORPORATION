@@ -16,7 +16,7 @@ function QRCode({ size = 160, label = true, variant = 'footer' }) {
           level="H"
           includeMargin={false}
           imageSettings={{
-            src: '/favicon.svg',
+            src: `${import.meta.env.BASE_URL}favicon.svg`,
             x: undefined,
             y: undefined,
             height: size * 0.2,

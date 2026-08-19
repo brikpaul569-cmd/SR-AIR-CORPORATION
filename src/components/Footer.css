@@ -1,9 +1,9 @@
 .footer {
-  background: rgba(63, 63, 63, 0.5);
+  background: var(--bg-footer);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-top: 1px solid rgba(255, 193, 7, 0.2);
-  color: #ccc;
+  color: var(--text-secondary);
   padding: 4rem 1.5rem 2rem;
 }
 
@@ -19,7 +19,7 @@
   align-items: flex-start;
   gap: 2.5rem;
   padding-bottom: 2.5rem;
-  border-bottom: 1px solid #ffffff1a;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .footer__qr {
@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: #ccc;
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.2s ease;
@@ -65,12 +65,47 @@
   align-items: center;
   justify-content: center;
   color: var(--color-gold);
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .footer__social a:hover {
-  background: var(--color-gold);
-  color: #0d0d0d;
+  transform: translateY(-2px);
+}
+
+/* Brand colors — Facebook */
+.footer__social a.footer__social--facebook {
+  color: #1877f2;
+  border-color: rgba(24, 119, 242, 0.4);
+}
+
+.footer__social a.footer__social--facebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+  color: #ffffff;
+}
+
+/* Brand colors — Instagram */
+.footer__social a.footer__social--instagram {
+  color: #e4405f;
+  border-color: rgba(228, 64, 95, 0.4);
+}
+
+.footer__social a.footer__social--instagram:hover {
+  background: #e4405f;
+  border-color: #e4405f;
+  color: #ffffff;
+}
+
+/* Brand colors — TikTok (black on light, white on dark) */
+.footer__social a.footer__social--tiktok {
+  color: var(--color-social-tiktok);
+  border-color: var(--border-subtle);
+}
+
+.footer__social a.footer__social--tiktok:hover {
+  background: #000000;
+  border-color: #000000;
+  color: #ffffff;
 }
 
 .footer__trust-badges {
@@ -93,7 +128,7 @@
   gap: 1rem;
   padding-top: 1.5rem;
   font-size: 0.8rem;
-  color: #777;
+  color: var(--text-faint);
   position: relative;
 }
 
@@ -103,6 +138,12 @@
   align-items: center;
   gap: 0.25rem;
   text-align: center;
+}
+
+.footer__bottom .footer__social {
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.75rem;
 }
 
 .footer__back-top {
@@ -157,9 +198,9 @@
 
 .footer__round-btn:hover {
   background: var(--color-gold);
-  color: #0d0d0d;
+  color: var(--color-black);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+  box-shadow: 0 8px 25px var(--gold-glow);
 }
 
 .footer__round-btn:active {
@@ -168,14 +209,16 @@
 
 /* WhatsApp button keeps brand green */
 .footer__round-btn--whatsapp {
-  border-color: #25D366;
-  color: #25D366;
+  border-color: var(--success-green);
+  background: var(--success-green);
+  color: #ffffff;
 }
 
 .footer__round-btn--whatsapp:hover {
-  background: #25D366;
-  color: #0d0d0d;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+  background: var(--success-green-dark);
+  border-color: var(--success-green-dark);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
 
 @media (max-width: 768px) {

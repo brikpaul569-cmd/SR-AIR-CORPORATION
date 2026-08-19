@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+const heroImg = `${import.meta.env.BASE_URL}references/negra.webp`
+
 import { Phone, ShieldCheck, Wrench, Clock } from 'lucide-react'
 import './Hero.css'
 
@@ -45,8 +47,6 @@ function Hero() {
   return (
     <section className="hero" id="inicio" ref={sectionRef}>
       <div className="hero__scroll-overlay"></div>
-      <div className="hero__diagonal-line"></div>
-      <div className="hero__diagonal-line-2"></div>
 
       <div className="hero__container">
         <div className="hero__text">
@@ -70,7 +70,7 @@ function Hero() {
           ref={imageRef}
         >
           <img
-            src="/references/black.png"
+            src={heroImg}
             alt={t('hero.imgAlt')}
             className="hero__image"
           />
