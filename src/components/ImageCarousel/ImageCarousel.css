@@ -16,17 +16,28 @@
   position: relative;
   width: 100%;
   max-width: 900px;
+  /* 90dvh: nunca más alto que la pantalla, deja espacio para la X */
+  max-height: 90dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   user-select: none;
   -webkit-user-select: none;
   /* Previene scroll anchoring al montar dentro del overlay */
   overflow-anchor: none;
   contain: layout style;
+  /* Scroll interno si el contenido excede el alto disponible */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Viewport */
 .ic__viewport {
   position: relative;
   width: 100%;
+  /* flex:1 + min-height:0: se contrae dentro del flex para no desbordar */
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   border-radius: var(--ic-radius);
   /* Crucial: embla controla solo eje X, libera eje Y para scroll nativo */
@@ -59,10 +70,13 @@
 
 /* ─── Close button ─────────────────────────────────────────────────────── */
 .ic__close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 20;
+  /* fixed: siempre en la esquina del viewport, no se mueve con .ic */
+  position: fixed;
+  /* safe-area: soporte para notch de iPhone */
+  top: env(safe-area-inset-top, 1rem);
+  right: 1rem;
+  /* z-index alto: por encima de flechas (10) y del track */
+  z-index: 1010;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,8 +185,6 @@
   }
 
   .ic__close {
-    top: 0.75rem;
-    right: 0.75rem;
     width: 48px;
     height: 48px;
   }
@@ -201,10 +213,5 @@
   :root {
     --ic-slide-height: 35vw;
     --ic-radius: 12px;
-  }
-
-  .ic__close {
-    top: 1rem;
-    right: 1rem;
   }
 }
