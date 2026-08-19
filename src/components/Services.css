@@ -227,11 +227,14 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 1rem 1rem;
-  overflow: hidden;
+  /* Permite scroll vertical si el carrusel supera el viewport */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .services__carousel-overlay .ic {
-  max-height: calc(100vh - 4rem);
+  max-height: none;
 }
 
 @media (min-width: 768px) {
@@ -240,6 +243,6 @@
   }
 
   .services__carousel-overlay .ic {
-    max-height: calc(100vh - 5.5rem);
+    max-height: none;
   }
 }

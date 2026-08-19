@@ -26,6 +26,8 @@
   width: 100%;
   overflow: hidden;
   border-radius: var(--ic-radius);
+  /* Crucial: embla controla solo eje X, libera eje Y para scroll nativo */
+  touch-action: pan-y;
 }
 
 /* Track */
