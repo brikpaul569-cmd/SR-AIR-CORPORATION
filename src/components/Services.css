@@ -219,7 +219,8 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(13, 13, 13, 0.85);
+  /* 100dvh: altura real del viewport en móviles (barra de Chrome/Safari) */
+  height: 100dvh;
   background: var(--ic-overlay, rgba(13, 13, 13, 0.85));
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -227,25 +228,9 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 1rem 1rem;
-  /* Permite scroll vertical si el carrusel supera el viewport */
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  /* overflow:hidden: el overlay NUNCA scrollea — el carrusel cabe dentro */
+  overflow: hidden;
   /* Neutraliza saltos de scroll al montar el carrusel */
   scroll-behavior: auto !important;
   overflow-anchor: none;
-}
-
-.services__carousel-overlay .ic {
-  max-height: none;
-}
-
-@media (min-width: 768px) {
-  .services__carousel-overlay {
-    padding: 3.5rem 2rem 2rem;
-  }
-
-  .services__carousel-overlay .ic {
-    max-height: none;
-  }
 }
