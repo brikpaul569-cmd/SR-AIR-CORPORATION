@@ -37,8 +37,8 @@ function ImageCarousel({ slides = [], onClose, className = '' }) {
   const onSelect = useCallback(() => {
     if (!emblaApi) return
     setSelectedIndex(emblaApi.selectedScrollSnap())
-    setCanPrev(emblaApi.canGoToPrev())
-    setCanNext(emblaApi.canGoToNext())
+    setCanPrev(emblaApi.canScrollPrev())
+    setCanNext(emblaApi.canScrollNext())
   }, [emblaApi])
 
   useEffect(() => {
