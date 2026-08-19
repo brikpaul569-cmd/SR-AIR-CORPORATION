@@ -160,6 +160,8 @@
   max-height: calc(100vh - 5.5rem);
   display: flex;
   flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .services__carousel-overlay .carousel__viewport {
@@ -183,14 +185,20 @@
   .services__carousel-overlay {
     padding: 3rem 1rem 1rem;
   }
+
+  .services__carousel-overlay .carousel {
+    max-height: calc(100vh - 4rem);
+    border-radius: 6px;
+  }
 }
 
 @media (max-width: 480px) {
   .services__carousel-overlay {
-    padding: 2.5rem 0.75rem 0.75rem;
+    padding: 2.75rem 0.5rem 0.5rem;
   }
 
   .services__carousel-overlay .carousel {
     max-height: calc(100vh - 3.5rem);
+    border-radius: 4px;
   }
 }
