@@ -25,6 +25,8 @@ const SERVICES_DATA = [
       { type: 'image', src: `${BASE}references/Images/tools.webp` },
       { type: 'image', src: `${BASE}references/Images/solcomercial.webp` },
       { type: 'image', src: `${BASE}references/Images/comercial.JPG` },
+      { type: 'image', src: `${BASE}references/Images/taqueria.webp` },
+      { type: 'image', src: `${BASE}references/Images/taqueria1.webp` },
       { type: 'image', src: `${BASE}references/comercial-delux-phoenix-az.webp` },
       { type: 'image', src: `${BASE}references/comercial-club-house.webp` },
     ],
