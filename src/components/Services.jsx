@@ -22,10 +22,11 @@ const SERVICES_DATA = [
     titleKey: 'services.card.commercialHvac',
     descKey: 'services.card.commercialHvacDesc',
     images: [
+      { type: 'image', src: `${BASE}references/Images/tools.webp` },
+      { type: 'image', src: `${BASE}references/Images/solcomercial.webp` },
+      { type: 'image', src: `${BASE}references/Images/comercial.JPG` },
       { type: 'image', src: `${BASE}references/comercial-delux-phoenix-az.webp` },
       { type: 'image', src: `${BASE}references/comercial-club-house.webp` },
-      { type: 'image', src: `${BASE}references/comercial-club-house-phoenix-az.webp` },
-      { type: 'image', src: `${BASE}references/club-house-phoenix-az.webp` },
     ],
   },
   {
