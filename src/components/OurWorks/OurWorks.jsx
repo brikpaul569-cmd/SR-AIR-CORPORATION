@@ -83,7 +83,6 @@ function WorksRow({ title, videos, onPlay, onDismiss }) {
                   </div>
                 </div>
                 <div className="works-card__info">
-                  <span className="works-card__title">{video.title}</span>
                   <span className="works-card__meta">
                     {video.category} • {video.duration}
                   </span>
