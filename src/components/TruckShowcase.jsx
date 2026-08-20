@@ -45,11 +45,9 @@ const TruckShowcase = () => {
         </div>
 
         <div className="truck-showcase__image-wrapper">
-          <img
-            src={truckImg}
-            alt={t('truckShowcase.imgAlt')}
-            className="truck-showcase__image"
-          />
+          <div className="truck-showcase__placeholder">
+            <span>Imagen Camioneta Próximamente</span>
+          </div>
           <span className="truck-showcase__badge truck-showcase__badge--emergency">
             {t('truckShowcase.emergencyBadge')}
           </span>
