@@ -1,7 +1,7 @@
 /* ─── OurWorks (Mobile-First) ──────────────────────────────────────────── */
 .our-works {
   padding: 4rem 1.5rem;
-  background: #0d0d0d;
+  background: var(--bg-about, #313131);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   position: relative;

@@ -50,7 +50,7 @@
 /* Contenedor responsive del video */
 .video-modal__container {
   width: 100%;
-  max-width: 480px; /* ancho típico Shorts */
+  max-width: min(92vw, 480px); /* Shorts: más amplio en mobile */
   margin: 0 auto;
 }
 
@@ -75,11 +75,21 @@
   display: block;
 }
 
-/* ─── Desktop: video centrado 16:9 ────────────────────────────────────── */
+/* ─── Tablet: contenedor más amplio ────────────────────────────────────── */
+@media (min-width: 768px) {
+  .video-modal__container {
+    max-width: 600px;
+  }
+}
+
+/* ─── Desktop: video centrado 16:9, contenedor grande ──────────────────── */
 @media (min-width: 1024px) {
+  .video-modal__container {
+    max-width: 900px;
+  }
+
   .video-modal__aspect {
     /* 16:9 para escritorio */
     aspect-ratio: 16 / 9;
-    max-width: 800px;
   }
 }
