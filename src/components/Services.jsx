@@ -50,16 +50,6 @@ const SERVICES_DATA = [
     ],
   },
   {
-    iconKey: 'PreventiveMaintenance',
-    titleKey: 'services.card.preventiveMaintenance',
-    descKey: 'services.card.preventiveMaintenanceDesc',
-    images: [
-      { type: 'image', src: `${BASE}references/comercial-club-house.webp` },
-      { type: 'image', src: `${BASE}references/fan-coils-en-deluxe-az.webp` },
-      { type: 'image', src: `${BASE}references/comercial-delux-phoenix-az.webp` },
-    ],
-  },
-  {
     iconKey: 'Emergency247',
     titleKey: 'services.card.emergency247',
     descKey: 'services.card.emergency247Desc',
