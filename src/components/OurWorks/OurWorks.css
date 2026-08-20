@@ -104,7 +104,8 @@
 .works-row__track {
   display: flex;
   gap: 0.75rem;
-  padding: 1rem 0.5rem;
+  /* Padding generoso para que align:'center' de embla no recorte primera/última card */
+  padding: 1rem 2rem;
 }
 
 /* ─── Netflix Card ─────────────────────────────────────────────────────── */
