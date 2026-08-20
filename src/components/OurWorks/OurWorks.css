@@ -84,14 +84,6 @@
   position: relative;
 }
 
-.works-row__title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary, #ffffff);
-  margin-bottom: 0.75rem;
-  padding-left: 1rem;
-}
-
 /* Viewport: overflow horizontally hidden, embla ref here */
 .works-row__viewport {
   position: relative;

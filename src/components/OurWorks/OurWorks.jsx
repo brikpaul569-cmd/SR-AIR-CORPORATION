@@ -49,7 +49,6 @@ function WorksRow({ title, videos, onPlay, onDismiss }) {
 
   return (
     <div className="works-row">
-      <h3 className="works-row__title">{title}</h3>
 
       <div className="works-row__viewport" ref={emblaRef}>
         <div className="works-row__track">
