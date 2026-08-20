@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import useEmblaCarousel from 'embla-carousel-react'
-import { Play, ChevronDown } from 'lucide-react'
+import { Play, ChevronDown, X } from 'lucide-react'
 import { WORKS_SECTIONS } from '../../data/worksData'
 import VideoModal from './VideoModal'
 import './OurWorks.css'
@@ -14,19 +14,15 @@ import './OurWorks.css'
  * @param {Array} videos — lista de videos {id, title, videoId, duration}
  * @param {function} onPlay — callback(videoId) al hacer click
  */
-function WorksRow({ title, videos, onPlay }) {
+function WorksRow({ title, videos, onPlay, onDismiss }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    // dragFree: scroll sin snap, ideal para carrusel tipo Netflix
+    align: 'center',
     dragFree: true,
-    // containScroll evita espacio vacío al final
-    containScroll: 'trimSnaps',
-    // padding para que las cards no toquen los bordes
-    padding: { left: 16, right: 16 },
-    // solo scroll horizontal
-    axis: 'x',
+    loop: false,
+    slidesToScroll: 1,
   })
 
-  // Flechas de navegación opcionales (habilitadas si hay overflow)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(false)
 
@@ -36,13 +32,19 @@ function WorksRow({ title, videos, onPlay }) {
   useEffect(() => {
     if (!emblaApi) return
     const update = () => {
+      setActiveIndex(emblaApi.selectedScrollSnap())
       setCanScrollPrev(emblaApi.canScrollPrev())
       setCanScrollNext(emblaApi.canScrollNext())
     }
     update()
     emblaApi.on('select', update)
+    emblaApi.on('init', update)
     emblaApi.on('resize', update)
-    return () => emblaApi.off('select', update)
+    return () => {
+      emblaApi.off('select', update)
+      emblaApi.off('init', update)
+      emblaApi.off('resize', update)
+    }
   }, [emblaApi])
 
   return (
@@ -51,38 +53,48 @@ function WorksRow({ title, videos, onPlay }) {
 
       <div className="works-row__viewport" ref={emblaRef}>
         <div className="works-row__track">
-          {videos.map((video) => (
-            <button
+          {videos.map((video, index) => (
+            <div
               key={video.id}
-              className="netflix-card works-card"
-              onClick={() => onPlay(video.videoId)}
-              aria-label={`Reproducir ${video.title}`}
-              type="button"
+              className={`netflix-card works-card ${index === activeIndex ? 'netflix-card--active' : ''}`}
             >
-              {/* Imagen placeholder (thumbnail de YouTube) */}
-              <div
-                className="works-card__thumb"
-                style={{
-                  /* mqdefault: thumbnail disponible para todos los videos, incluyendo Shorts */
-                  backgroundImage: `url(https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg)`,
-                }}
+              <button
+                className="works-card__dismiss"
+                onClick={(e) => { e.stopPropagation(); onDismiss(video.videoId) }}
+                aria-label={`Cerrar ${video.title}`}
+                type="button"
               >
-                <div className="works-card__play">
-                  <Play size={28} fill="currentColor" />
+                <X size={16} />
+              </button>
+              <button
+                className="works-card__play-area"
+                onClick={() => onPlay(video.videoId)}
+                aria-label={`Reproducir ${video.title}`}
+                type="button"
+              >
+                <div
+                  className="works-card__thumb"
+                  style={{
+                    backgroundImage: `url(https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg)`,
+                  }}
+                >
+                  <div className="works-card__play">
+                    <Play size={28} fill="currentColor" />
+                  </div>
                 </div>
-              </div>
-              <div className="works-card__info">
-                <span className="works-card__title">{video.title}</span>
-                <span className="works-card__meta">
-                  {video.category} • {video.duration}
-                </span>
-              </div>
-            </button>
+                <div className="works-card__info">
+                  <span className="works-card__title">{video.title}</span>
+                  <span className="works-card__meta">
+                    {video.category} • {video.duration}
+                  </span>
+                </div>
+              </button>
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Flechas de navegación (desktop hover) */}
+      {/* Flechas de navegación — visibles siempre en desktop */}
       {canScrollPrev && (
         <button
           className="works-row__nav works-row__nav--prev"
@@ -126,6 +138,12 @@ function OurWorks() {
   const handleClose = useCallback(() => {
     setActiveVideoId(null)
   }, [])
+
+  const handleDismiss = useCallback((videoId) => {
+    if (activeVideoId === videoId) {
+      setActiveVideoId(null)
+    }
+  }, [activeVideoId])
 
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev)
@@ -172,6 +190,7 @@ function OurWorks() {
               title={section.title}
               videos={section.videos}
               onPlay={handlePlay}
+              onDismiss={handleDismiss}
             />
           ))}
         </div>
