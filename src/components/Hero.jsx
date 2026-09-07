@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 const heroImg = `${import.meta.env.BASE_URL}references/negra.webp`
+const heroBg = `${import.meta.env.BASE_URL}references/saith9.jpeg`
 
 import { Phone, ShieldCheck, Wrench, Clock } from 'lucide-react'
 import './Hero.css'
@@ -45,7 +46,7 @@ function Hero() {
   }, [])
 
   return (
-    <section className="hero" id="inicio" ref={sectionRef}>
+    <section className="hero" id="inicio" ref={sectionRef} style={{ '--hero-bg-image': `url('${heroBg}')` }}>
       <div className="hero__scroll-overlay"></div>
 
       <div className="hero__container">
