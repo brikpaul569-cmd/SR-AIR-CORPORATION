@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   background: var(--bg-hero);
-  background-image: linear-gradient(rgba(13, 13, 13, 0.78), rgba(13, 13, 13, 0.82)), var(--hero-bg-image);
+  background-image: var(--hero-bg-overlay), var(--hero-bg-image);
   background-size: cover;
   background-position: center;
   -webkit-backdrop-filter: blur(14px);
