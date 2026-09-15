@@ -7,6 +7,20 @@ import './ContactForm.css'
 
 function ContactForm({ isOpen, onClose }) {
   const { t } = useTranslation()
+
+  // Human-readable service names sent to the EmailJS template (the client reads Spanish
+  // regardless of the visitor's UI language). Keep in sync with src/i18n/locales/es.json.
+  const SERVICE_LABELS = {
+    heating: 'Sistemas de Calefacción',
+    commercial: 'HVAC Comercial',
+    residential: 'HVAC Residencial',
+    refrigeration: 'Refrigeración',
+    vrf: 'Sistemas VRF',
+    chillers: 'Enfriadores',
+    heatpump: 'Bombas de Calor',
+    maintenance: 'Mantenimiento Preventivo',
+    emergency: 'Servicio de Emergencia 24/7',
+  }
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '', service: '', message: '', website: '',
   })
@@ -44,7 +58,7 @@ function ContactForm({ isOpen, onClose }) {
           from_name: formData.name,
           reply_to: formData.email,
           phone: formData.phone,
-          service: formData.service,
+          service: SERVICE_LABELS[formData.service] || formData.service,
           message: formData.message,
         },
         { publicKey: EMAILJS_PUBLIC_KEY },
