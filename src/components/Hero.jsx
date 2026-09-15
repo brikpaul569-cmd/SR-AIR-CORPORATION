@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 const heroVideo = `${import.meta.env.BASE_URL}references/Video/condensadores.mp4`
 const heroBg = `${import.meta.env.BASE_URL}references/saith9.jpeg`
@@ -9,8 +9,7 @@ import './Hero.css'
 function Hero() {
   const { t } = useTranslation()
   const sectionRef = useRef(null)
-  const imageRef = useRef(null)
-  const [imageVisible, setImageVisible] = useState(false)
+  const videoRef = useRef(null)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -29,24 +28,43 @@ function Hero() {
   }, [])
 
   useEffect(() => {
-    const img = imageRef.current
-    if (!img) return
+    const video = videoRef.current
+    if (!video) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setImageVisible(true)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 0.2 }
-    )
-    observer.observe(img)
-    return () => observer.disconnect()
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const syncPlayback = () => {
+      if (reducedMotion.matches) {
+        video.pause()
+        video.removeAttribute('autoplay')
+      } else if (video.paused) {
+        video.play().catch(() => {})
+      }
+    }
+
+    syncPlayback()
+    if (reducedMotion.addEventListener) {
+      reducedMotion.addEventListener('change', syncPlayback)
+      return () => reducedMotion.removeEventListener('change', syncPlayback)
+    }
   }, [])
 
   return (
-    <section className="hero" id="inicio" ref={sectionRef} style={{ '--hero-bg-image': `url('${heroBg}')` }}>
+    <section className="hero" id="inicio" ref={sectionRef}>
+      <video
+        ref={videoRef}
+        className="hero__video-bg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={heroBg}
+        aria-hidden="true"
+        tabIndex={-1}
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+      <div className="hero__video-overlay"></div>
       <div className="hero__scroll-overlay"></div>
 
       <div className="hero__container">
@@ -64,22 +82,6 @@ function Hero() {
               {t('hero.ctaCall')}
             </a>
           </div>
-        </div>
-
-        <div
-          className={`hero__image-wrapper ${imageVisible ? 'hero__image-wrapper--visible' : ''}`}
-          ref={imageRef}
-        >
-          <video
-            src={heroVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            aria-label={t('hero.imgAlt')}
-            className="hero__video"
-          />
         </div>
       </div>
 
