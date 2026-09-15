@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { send } from '@emailjs/browser'
 import QRCode from './QRCode'
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
 import './ContactForm.css'
 
 function ContactForm({ isOpen, onClose }) {
   const { t } = useTranslation()
   const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', service: '', message: '',
+    name: '', email: '', phone: '', service: '', message: '', website: '',
   })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
@@ -22,14 +24,35 @@ function ContactForm({ isOpen, onClose }) {
   }, [isOpen, onClose])
 
   useEffect(() => {
-    if (!isOpen) setSubmitted(false)
+    if (!isOpen) setStatus('idle')
   }, [isOpen])
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    if (formData.website) {
+      setStatus('success')
+      return
+    }
+    setStatus('sending')
+    try {
+      await send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      )
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
   }
 
   if (!isOpen) return null
@@ -39,7 +62,7 @@ function ContactForm({ isOpen, onClose }) {
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <button className="modal__close" onClick={onClose} aria-label={t('contact.closeModal')}>&times;</button>
 
-        {submitted ? (
+        {status === 'success' ? (
           <div className="modal__success">
             <div className="modal__success-icon">✓</div>
             <h2 className="modal__title">{t('contact.thankYou')}</h2>
@@ -96,7 +119,24 @@ function ContactForm({ isOpen, onClose }) {
                 <label htmlFor="message">{t('contact.message')}</label>
                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder={t('contact.messagePlaceholder')} rows="4"></textarea>
               </div>
-              <button type="submit" className="modal__submit">{t('contact.submit')}</button>
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+                style={{ position: 'absolute', left: '-9999px' }}
+                aria-hidden="true"
+              />
+              {status === 'error' && (
+                <p className="modal__error" role="alert">
+                  <strong>{t('contact.errorTitle')}:</strong> {t('contact.errorMessage')}
+                </p>
+              )}
+              <button type="submit" className="modal__submit" disabled={status === 'sending'}>
+                {status === 'sending' ? t('contact.sending') : t('contact.submit')}
+              </button>
             </form>
           </>
         )}

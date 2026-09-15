@@ -130,7 +130,10 @@
     "serviceEmergency": "24/7 Emergency Service",
     "message": "Message",
     "messagePlaceholder": "Tell us about your HVAC needs...",
-    "submit": "Send Request"
+    "submit": "Send Request",
+    "sending": "Sending…",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't send your request. Please check your info and try again."
   },
   "qr": {
     "scanToVisit": "Scan to visit",
