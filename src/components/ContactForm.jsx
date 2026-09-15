@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { send } from '@emailjs/browser'
 import QRCode from './QRCode'
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
+import { REQUEST_SHEET_WEBHOOK_URL, REQUEST_SHEET_TOKEN } from '../config/requests-sheet'
 import './ContactForm.css'
 
 function ContactForm({ isOpen, onClose }) {
@@ -63,6 +64,26 @@ function ContactForm({ isOpen, onClose }) {
         },
         { publicKey: EMAILJS_PUBLIC_KEY },
       )
+      // Additive ledger write (client's "Excel" queue). Best-effort: a failure here
+      // never blocks the EmailJS success — the email remains the source of truth.
+      if (REQUEST_SHEET_WEBHOOK_URL) {
+        try {
+          await fetch(REQUEST_SHEET_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              token: REQUEST_SHEET_TOKEN,
+              client: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              service: SERVICE_LABELS[formData.service] || formData.service,
+              message: formData.message,
+            }),
+          })
+        } catch {
+          // Best-effort only: ignore sheet errors, EmailJS already delivered.
+        }
+      }
       setStatus('success')
     } catch {
       setStatus('error')
