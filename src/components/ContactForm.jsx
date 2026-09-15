@@ -70,7 +70,9 @@ function ContactForm({ isOpen, onClose }) {
         try {
           await fetch(REQUEST_SHEET_WEBHOOK_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            // text/plain avoids a CORS preflight on Google Apps Script web apps;
+            // the script still receives the raw JSON in postData.contents.
+            headers: { 'Content-Type': 'text/plain' },
             body: JSON.stringify({
               token: REQUEST_SHEET_TOKEN,
               client: formData.name,

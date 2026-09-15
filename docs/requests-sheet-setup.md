@@ -99,6 +99,9 @@ function reply_(code, msg) {
 
 ## Notas / límites
 
+- El sitio envía el POST con `Content-Type: text/plain` (JSON en el body) a propósito:
+  evita el preflight CORS de Apps Script (`application/json` falla desde el navegador).
+  No cambiar a `application/json` sin probar antes.
 - El Apps Script gratuito tiene límite de ~20.000 ejecuciones/día — irrelevante acá.
 - La planilla se inserta en el Drive de la cuenta con la que crees el Script Web App.
 - El token viaja en el body del POST (HTTPS) — suficiente contra spam casual.

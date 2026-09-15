@@ -7,7 +7,7 @@
 //      (client's Gmail recommended — they see it in their Drive).
 //   2. Extensions -> Apps Script -> paste the code from docs/requests-sheet-setup.md
 //      -> Deploy as Web App (Execute as: Me, Access: Anyone) -> copy the URL.
-//   3. Put that URL here and set REQUEST_SHEET_TOKEN to a secret of your choice
-//      (the same token you set in the Apps Script code).
-export const REQUEST_SHEET_WEBHOOK_URL = ''
-export const REQUEST_SHEET_TOKEN = ''
+//   3. Put that URL here and set REQUEST_SHEET_TOKEN to the TOKEN value
+//      defined inside the Apps Script code.
+export const REQUEST_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwN2i9chVpMERv-QAf8hm6PuycnhBNAiVbyoapv7bgHwzzlfiTCIu1Fyh73Tu6RGKaLWQ/exec'
+export const REQUEST_SHEET_TOKEN = 'PON_AQUI_UN_SECRETO_LARGO'
