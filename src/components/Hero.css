@@ -59,7 +59,7 @@
 .hero__subtitle {
   font-size: 0.8rem;
   font-weight: 400;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.82);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 2rem;
@@ -69,7 +69,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.15;
-  color: var(--text-primary);
+  color: #ffffff;
   margin-bottom: 0.75rem;
 }
 
@@ -84,25 +84,12 @@
 .hero__description {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.90);
   line-height: 1.7;
   max-width: 520px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2rem;
-}
-
-/* ── Dark mode contrast over background video ─────────────────────────── */
-[data-theme='dark'] .hero__title {
-  color: #ffffff;
-}
-
-[data-theme='dark'] .hero__subtitle {
-  color: #ffffff;
-}
-
-[data-theme='dark'] .hero__description {
-  color: rgba(255, 255, 255, 0.90);
 }
 
 /* CTA buttons */
@@ -194,7 +181,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 0.85rem;
   font-weight: 400;
 }
