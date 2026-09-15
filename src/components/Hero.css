@@ -142,6 +142,25 @@
   transform: translateX(0);
 }
 
+/* Hero video (replaces truck image) */
+.hero__video {
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 193, 7, 0.25);
+  box-shadow:
+    0 20px 60px var(--shadow-strong),
+    0 0 40px rgba(255, 193, 7, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero__image-wrapper--visible .hero__video {
+  animation: truckIdle 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
 .hero__image {
   width: 100%;
   max-width: 900px;

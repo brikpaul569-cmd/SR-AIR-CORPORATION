@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-const heroImg = `${import.meta.env.BASE_URL}references/negra.webp`
+const heroVideo = `${import.meta.env.BASE_URL}references/Video/condensadores.mp4`
 const heroBg = `${import.meta.env.BASE_URL}references/saith9.jpeg`
 
 import { Phone, ShieldCheck, Wrench, Clock } from 'lucide-react'
@@ -70,10 +70,15 @@ function Hero() {
           className={`hero__image-wrapper ${imageVisible ? 'hero__image-wrapper--visible' : ''}`}
           ref={imageRef}
         >
-          <img
-            src={heroImg}
-            alt={t('hero.imgAlt')}
-            className="hero__image"
+          <video
+            src={heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label={t('hero.imgAlt')}
+            className="hero__video"
           />
         </div>
       </div>

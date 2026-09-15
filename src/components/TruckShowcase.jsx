@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Zap, Thermometer, ShieldCheck, Clock } from 'lucide-react';
 
-const truckImg = `${import.meta.env.BASE_URL}references/gris.webp`;
+const truckImg = `${import.meta.env.BASE_URL}references/negra.webp`;
 const tarjetaImg = `${import.meta.env.BASE_URL}references/EDICIONFINAL.png`;
 import './TruckShowcase.css';
 
@@ -45,9 +45,11 @@ const TruckShowcase = () => {
         </div>
 
         <div className="truck-showcase__image-wrapper">
-          <div className="truck-showcase__placeholder">
-            <span>Imagen Camioneta Próximamente</span>
-          </div>
+          <img
+            src={truckImg}
+            alt={t('truckShowcase.imgAlt')}
+            className="truck-showcase__image"
+          />
           <span className="truck-showcase__badge truck-showcase__badge--emergency">
             {t('truckShowcase.emergencyBadge')}
           </span>
