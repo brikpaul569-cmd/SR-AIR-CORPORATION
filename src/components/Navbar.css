@@ -76,6 +76,11 @@
   transition: width 0.3s ease;
 }
 
+/* Dark mode: white links over the hero video */
+[data-theme='dark'] .navbar__links a {
+  color: rgba(255, 255, 255, 0.92);
+}
+
 .navbar__links a:hover {
   color: var(--color-gold);
 }

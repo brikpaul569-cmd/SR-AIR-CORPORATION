@@ -32,7 +32,7 @@ function WeatherBadge({ condition, temp, city, onOverride }) {
         title={t('weather.info')}
       >
         <Icon size={14} />
-        {temp !== null && <span className="weather-badge__temp">{temp}°C</span>}
+        {temp !== null && <span className="weather-badge__temp">{temp}°F</span>}
         <span className="weather-badge__city">{city}</span>
       </button>
 

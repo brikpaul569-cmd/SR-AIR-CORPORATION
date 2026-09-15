@@ -92,6 +92,19 @@
   margin-bottom: 2rem;
 }
 
+/* ── Dark mode contrast over background video ─────────────────────────── */
+[data-theme='dark'] .hero__title {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .hero__subtitle {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+[data-theme='dark'] .hero__description {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 /* CTA buttons */
 .hero__cta-group {
   display: flex;

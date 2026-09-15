@@ -57,7 +57,7 @@ function useWeather(manualOverride = null) {
 
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`
       )
       if (!res.ok) throw new Error('Weather fetch failed')
       const data = await res.json()
